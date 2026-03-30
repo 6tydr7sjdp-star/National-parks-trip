@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { days, sharedPhotoAlbumUrl, stops } from '@/data/trip'
+import { days, sharedPhotoAlbumUrl, stops, tripTagline } from '@/data/trip'
 import PhotoAlbumCta from '@/components/PhotoAlbumCta'
 import styles from './page.module.css'
 
@@ -9,9 +9,11 @@ export default function Home() {
 
       {/* Hero */}
       <section className={styles.hero}>
-        <p className={styles.heroEyebrow}>Katz Family · Summer 2025</p>
+        <p className={styles.heroEyebrow}>Katz Family Road Trip · Summer 2026</p>
         <h1 className={styles.heroTitle}>The Grand<br />Western Loop</h1>
-        <p className={styles.heroDates}>May 30 – June 12 · 13 Days · 6 Stops</p>
+        <p className={styles.heroDates}>
+          May 30 – June 12 · {tripTagline.calendarDays} Days · {tripTagline.nationalParks} National Parks · {tripTagline.epicLine}
+        </p>
         <div className={styles.heroCta}>
           <Link href="/itinerary" className={styles.btnPrimary}>View Itinerary</Link>
           <Link href="/packing" className={styles.btnSecondary}>Packing List</Link>
@@ -61,8 +63,8 @@ export default function Home() {
       {/* Stats */}
       <section className={styles.statsSection}>
         {[
-          { val: '13', label: 'Days on the road' },
-          { val: '6', label: 'National parks' },
+          { val: String(tripTagline.calendarDays), label: 'Days (calendar)' },
+          { val: String(tripTagline.nationalParks), label: 'National parks' },
           { val: '2', label: 'Campsites' },
           { val: '1', label: 'Guided tour booked' },
         ].map(s => (

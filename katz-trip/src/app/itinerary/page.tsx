@@ -1,4 +1,4 @@
-import { days } from '@/data/trip'
+import { days, tripTagline } from '@/data/trip'
 import DayCard from '@/components/DayCard'
 import styles from './page.module.css'
 
@@ -7,7 +7,9 @@ export default function Itinerary() {
     <div className={styles.wrap}>
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>Itinerary</h1>
-        <p className={styles.pageSub}>13 days · May 30 – June 12</p>
+        <p className={styles.pageSub}>
+          {tripTagline.calendarDays} days · May 30 – June 12
+        </p>
       </div>
 
       {/* Jump links */}
