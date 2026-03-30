@@ -1,0 +1,170 @@
+.wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.pageHeader { margin-bottom: 2rem; }
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pageSub {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-top: 4px;
+}
+
+.section { margin-bottom: 2.5rem; }
+
+.albumHelp {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.albumLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: 0.1px;
+}
+
+.albumInput {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-900);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.albumInput:focus {
+  border-color: var(--navy);
+}
+
+.albumTripNote {
+  font-size: 12px;
+  color: var(--gray-400);
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.code {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--navy);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+/* Prompt grid */
+.promptGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.promptCard {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.promptLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: 0.1px;
+}
+
+.promptInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-900);
+  line-height: 1.6;
+  background: transparent;
+}
+
+.promptInput::placeholder { color: var(--gray-400); }
+
+/* Free note */
+.freeNote {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--gray-900);
+  line-height: 1.7;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.freeNote:focus { border-color: var(--navy); }
+.freeNote::placeholder { color: var(--gray-400); }
+
+/* Info grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.infoCard {
+  background: var(--navy);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.infoLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoVal {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .promptGrid { grid-template-columns: 1fr; }
+  .infoGrid { grid-template-columns: 1fr 1fr; }
+}

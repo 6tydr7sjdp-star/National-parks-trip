@@ -1,0 +1,10 @@
+# Next.js (katz-trip)
+katz-trip/node_modules/
+katz-trip/.next/
+katz-trip/out/
+katz-trip/.env*.local
+katz-trip/.vercel
+katz-trip/npm-debug.log*
+
+# OS / editor
+.DS_Store
