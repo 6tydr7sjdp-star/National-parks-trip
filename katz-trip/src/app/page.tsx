@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { days, sharedPhotoAlbumUrl, stops, tripTagline } from '@/data/trip'
+import HomeDayGrid from '@/components/HomeDayGrid'
 import PhotoAlbumCta from '@/components/PhotoAlbumCta'
 import styles from './page.module.css'
 
@@ -37,28 +38,7 @@ export default function Home() {
       </section>
 
       {/* Quick-glance grid */}
-      <section className={styles.gridSection}>
-        <h2 className={styles.sectionTitle}>All Days</h2>
-        <div className={styles.dayGrid}>
-          {days.map((d, i) => (
-            <Link
-              key={d.id}
-              href={`/itinerary#day-${d.id}`}
-              className={styles.dayTile}
-              style={{ animationDelay: `${i * 30}ms` }}
-            >
-              <div className={styles.dayTileTop}>
-                <span className={styles.dayTileIcon}>{d.icon}</span>
-                <span className={`badge badge-${d.badgeColor}`}>{d.badge}</span>
-              </div>
-              <p className={styles.dayTileNum}>Day {d.id}</p>
-              <p className={styles.dayTileDate}>{d.date}</p>
-              <p className={styles.dayTileTitle}>{d.title}</p>
-              <p className={styles.dayTileLoc}>{d.location}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <HomeDayGrid serverDays={days} />
 
       {/* Stats */}
       <section className={styles.statsSection}>
