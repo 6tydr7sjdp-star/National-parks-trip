@@ -78,16 +78,8 @@ export default function VanTracker({
         {progress.status === 'after' && 'Garage (for now)'}
       </p>
       <p className={styles.vanCredit}>
-        Van look inspired by{' '}
-        <a
-          href="https://nativecampervans.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.vanCreditLink}
-        >
-          Native Campervans
-        </a>
-        ’s white, low-graphic ProMaster-style campers — not an official asset.
+        Illustration: 1970s-style road van (not a real photo). Nose points the way we’re
+        traveling on the map.
       </p>
     </section>
   )

@@ -241,7 +241,7 @@ export const stops = [
 /** Home page narrative — three-act structure matches the trip playbook */
 export const itineraryOverview = {
   intro:
-    'May 30 through June 12: SLC family time, Utah’s red rock and arches, then a long pull north to the Tetons and Yellowstone. Twelve driving-itinerary days, built for a comfy ProMaster-style camper (think low-key graphics and a tall box like a Native van).',
+    'May 30 through June 12: SLC family time, Utah’s red rock and arches, then a long pull north to the Tetons and Yellowstone. Twelve driving-itinerary days on the road.',
   phases: [
     {
       label: 'Phase 01',
