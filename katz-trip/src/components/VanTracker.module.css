@@ -1,0 +1,147 @@
+.section {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.status {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+.status strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.track {
+  position: relative;
+  background: linear-gradient(180deg, #e3edf5 0%, #dce8f2 100%);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1rem 3.25rem;
+  overflow: hidden;
+}
+
+.road {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gray-400) 0,
+    var(--gray-400) 14px,
+    transparent 14px,
+    transparent 22px
+  );
+  border-radius: 3px;
+  opacity: 0.55;
+}
+
+.roadSolid {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 3px;
+  background: var(--gray-600);
+  opacity: 0.25;
+  border-radius: 2px;
+}
+
+.milestone {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  width: 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--navy);
+  margin-left: -5px;
+  box-shadow: 0 1px 4px rgba(26, 39, 68, 0.12);
+}
+
+.milestoneLabel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  width: 72px;
+  margin-left: -36px;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--gray-600);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.vanWrap {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 3;
+  transform: translate(-50%, calc(-50% - 18px));
+  width: 72px;
+  height: 44px;
+  color: var(--navy);
+  filter: drop-shadow(0 4px 10px rgba(26, 39, 68, 0.18));
+  transition: left 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.bounce {
+  animation: vanBob 2.4s ease-in-out infinite;
+}
+
+@keyframes vanBob {
+  0%,
+  100% {
+    transform: translate(-50%, calc(-50% - 18px));
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 22px));
+  }
+}
+
+.pct {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy-muted);
+  margin-top: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 520px) {
+  .milestoneLabel {
+    width: 56px;
+    margin-left: -28px;
+    font-size: 8px;
+  }
+
+  .vanWrap {
+    width: 58px;
+    height: 36px;
+  }
+}

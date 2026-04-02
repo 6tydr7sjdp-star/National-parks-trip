@@ -244,3 +244,6 @@ export const tripTagline = {
   calendarDays: 14,
   epicLine: '1 Epic Adventure',
 }
+
+/** Used when parsing “May 30” on itinerary days (van tracker + progress) */
+export const TRIP_CALENDAR_YEAR = 2026

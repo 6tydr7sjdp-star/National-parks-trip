@@ -3,10 +3,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const links = [
-  { href: '/',           label: 'Overview'   },
-  { href: '/itinerary',  label: 'Itinerary'  },
-  { href: '/packing',    label: 'Packing'    },
-  { href: '/notes',      label: 'Notes'      },
+  { href: '/', label: 'Trip' },
+  { href: '/itinerary', label: 'Itinerary' },
 ]
 
 export default function Nav() {
