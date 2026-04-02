@@ -87,13 +87,13 @@ export default function TripVanSvg({
       />
       <path d="M 42 22 L 52 20 L 62 38 L 36 36 Z" fill="#344854" opacity="0.32" />
 
-      {/* Script name on front door (rental nickname style) */}
+      {/* Script name on front door (white panel, below windshield) */}
       <text
-        x="38"
-        y="46"
-        fill="#222"
+        x="54"
+        y="45"
+        fill="#1a1a1a"
         fontFamily="Georgia, 'Times New Roman', serif"
-        fontSize="5.2"
+        fontSize="5"
         fontStyle="italic"
       >
         Katz Trip
@@ -108,22 +108,22 @@ export default function TripVanSvg({
 
       {/* NATIVE badge: mountain + word (rear panel) */}
       <g transform="translate(108, 26)" aria-hidden="true">
-        <rect x="0" y="0" width="36" height="12" rx="1.5" fill="#fff" stroke="#1a1a1a" strokeWidth="0.9" />
+        <rect x="0" y="0" width="40" height="12" rx="1.5" fill="#fff" stroke="#1a1a1a" strokeWidth="0.9" />
         <path
-          d="M 4 9 L 8 3 L 11 6 L 14.5 2 L 18 9 Z"
+          d="M 3.5 9 L 7 2.5 L 10 5.5 L 13.5 1.5 L 17.5 9 Z"
           fill="none"
           stroke="#1a1a1a"
-          strokeWidth="0.85"
+          strokeWidth="0.8"
           strokeLinejoin="round"
         />
         <text
-          x="19"
+          x="20"
           y="8.5"
           fill="#1a1a1a"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="6"
+          fontSize="5.5"
           fontWeight="700"
-          letterSpacing="0.04em"
+          letterSpacing="0.06em"
         >
           NATIVE
         </text>
