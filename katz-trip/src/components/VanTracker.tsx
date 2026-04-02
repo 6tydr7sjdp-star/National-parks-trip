@@ -64,6 +64,18 @@ export default function VanTracker({ serverDays }: { serverDays: Day[] }) {
         {progress.status === 'during' && 'On the loop'}
         {progress.status === 'after' && 'Garage (for now)'}
       </p>
+      <p className={styles.vanCredit}>
+        Van look inspired by{' '}
+        <a
+          href="https://nativecampervans.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.vanCreditLink}
+        >
+          Native Campervans
+        </a>
+        ’s clean ProMaster builds — not an official asset.
+      </p>
     </section>
   )
 }

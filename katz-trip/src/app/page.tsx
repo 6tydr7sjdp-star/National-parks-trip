@@ -1,3 +1,4 @@
+import ItineraryOverview from '@/components/ItineraryOverview'
 import VanTracker from '@/components/VanTracker'
 import Link from 'next/link'
 import { TRIP_CALENDAR_YEAR, days, sharedPhotoAlbumUrl, tripTagline } from '@/data/trip'
@@ -23,6 +24,8 @@ export default function Home() {
         </div>
         <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} />
       </section>
+
+      <ItineraryOverview />
 
       <VanTracker serverDays={days} />
     </div>

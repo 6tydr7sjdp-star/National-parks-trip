@@ -238,6 +238,38 @@ export const stops = [
   { label: 'Yellowstone', days: '10–12' },
 ]
 
+/** Home page narrative — three-act structure matches the trip playbook */
+export const itineraryOverview = {
+  intro:
+    'May 30 through June 12: SLC family time, Utah’s red rock and arches, then a long pull north to the Tetons and Yellowstone. Twelve driving-itinerary days, built for a comfy ProMaster-style camper (think low-key graphics and a tall box like a Native van).',
+  phases: [
+    {
+      label: 'Phase 01',
+      title: 'The warm up',
+      days: 'Days 1–2',
+      anchor: 'Salt Lake City',
+      blurb:
+        'Fly to SLC, land at the family house, reset with groceries and gear prep before the desert.',
+    },
+    {
+      label: 'Phase 02',
+      title: 'Red rock territory',
+      days: 'Days 3–8',
+      anchor: 'Bryce · Capitol Reef · Moab',
+      blurb:
+        'National parks and flex days: Bryce rim sunset, Fruita camping and pie, Moab for Arches and Canyonlands with pool afternoons in between.',
+    },
+    {
+      label: 'Phase 03',
+      title: 'The grand north',
+      days: 'Days 9–12',
+      anchor: 'Grand Teton · Yellowstone',
+      blurb:
+        'Big drive to Colter Bay, then Canyon Lodge — guided caldera day plus wildlife and geysers before winding down.',
+    },
+  ],
+}
+
 /** Subtitle line for marketing (PDF: 4 parks · 14 days) */
 export const tripTagline = {
   nationalParks: 4,

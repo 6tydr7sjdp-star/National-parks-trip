@@ -1,0 +1,159 @@
+.section {
+  margin-bottom: 2.25rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.intro {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--gray-600);
+  margin-bottom: 1.25rem;
+  max-width: 40rem;
+}
+
+.phaseGrid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .phaseGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.phaseCard {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.phaseCard:hover {
+  border-color: var(--navy-muted);
+  box-shadow: 0 4px 14px rgba(26, 39, 68, 0.06);
+}
+
+.phaseLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 6px;
+}
+
+.phaseTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.phaseMeta {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.phaseDays {
+  color: var(--navy);
+}
+
+.phaseSep {
+  color: var(--gray-400);
+  margin: 0 4px;
+}
+
+.phaseBlurb {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--gray-600);
+}
+
+.stops {
+  background: var(--sand);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.stopsTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.stopList {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+@media (min-width: 560px) {
+  .stopList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stopItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.stopItem:last-child {
+  border-bottom: none;
+}
+
+.stopName {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.stopDays {
+  font-size: 12px;
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+
+.footerLine {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.link {
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link:hover {
+  color: var(--gold);
+}
+
+.sep {
+  color: var(--gray-400);
+  margin: 0 6px;
+}
