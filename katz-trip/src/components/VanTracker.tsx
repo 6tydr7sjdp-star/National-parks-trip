@@ -11,7 +11,13 @@ function clamp01(x: number) {
   return Math.min(1, Math.max(0, x))
 }
 
-export default function VanTracker({ serverDays }: { serverDays: Day[] }) {
+export default function VanTracker({
+  serverDays,
+  layout = 'default',
+}: {
+  serverDays: Day[]
+  layout?: 'default' | 'top'
+}) {
   const { days } = useTripDays(serverDays)
   const [progress, setProgress] = useState(() =>
     getTripProgress(new Date(), serverDays),
@@ -27,8 +33,15 @@ export default function VanTracker({ serverDays }: { serverDays: Day[] }) {
   const leftPct = 6 + clamp01(progress.progress01) * 88
   const milestones = getRouteMilestones(days.length)
 
+  const sectionClass =
+    layout === 'top'
+      ? `${styles.section} ${styles.sectionTop}`
+      : styles.section
+  const trackClass =
+    layout === 'top' ? `${styles.track} ${styles.trackTop}` : styles.track
+
   return (
-    <section className={styles.section} aria-label="Trip progress van">
+    <section className={sectionClass} aria-label="Trip progress van">
       <h2 className={styles.heading}>Where’s the van?</h2>
       <p className={styles.status}>
         <strong>{progress.headline}</strong>
@@ -36,7 +49,7 @@ export default function VanTracker({ serverDays }: { serverDays: Day[] }) {
         {progress.sub}
       </p>
 
-      <div className={styles.track}>
+      <div className={trackClass}>
         <div className={styles.roadSolid} />
         <div className={styles.road} />
 
@@ -74,7 +87,7 @@ export default function VanTracker({ serverDays }: { serverDays: Day[] }) {
         >
           Native Campervans
         </a>
-        ’s clean ProMaster builds — not an official asset.
+        ’s white, low-graphic ProMaster-style campers — not an official asset.
       </p>
     </section>
   )

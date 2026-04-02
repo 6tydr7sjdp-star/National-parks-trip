@@ -8,6 +8,8 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <div className={styles.wrap}>
+      <VanTracker serverDays={days} layout="top" />
+
       <section className={styles.stripHero}>
         <p className={styles.stripEyebrow}>
           Katz family · {tripTagline.calendarDays}-day loop · Summer {TRIP_CALENDAR_YEAR}
@@ -26,8 +28,6 @@ export default function Home() {
       </section>
 
       <ItineraryOverview />
-
-      <VanTracker serverDays={days} />
     </div>
   )
 }
