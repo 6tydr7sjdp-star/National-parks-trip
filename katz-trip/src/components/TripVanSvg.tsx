@@ -1,9 +1,10 @@
 import type { CSSProperties } from 'react'
 
 /**
- * White ProMaster-style camper profile inspired by Native Campervans’ fleet photos:
- * bright body, tinted glass band, low-profile roof hardware, minimal exterior text.
- * https://nativecampervans.com/
+ * Matches Native Campervans fleet look: white high-roof ProMaster, heavy matte-black
+ * lower cladding + wheel arches, steel wheels / silver caps, solid white cargo shell,
+ * cab glass only, slider seam, small NATIVE mountain badge.
+ * Ref: https://nativecampervans.com/
  */
 export default function TripVanSvg({
   className,
@@ -16,97 +17,128 @@ export default function TripVanSvg({
     <svg
       className={className}
       style={style}
-      viewBox="0 0 170 88"
+      viewBox="0 0 186 92"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
     >
-      <title>White camper van (Native Campervans–style)</title>
+      <title>White ProMaster camper (Native-style)</title>
 
-      <ellipse cx="85" cy="78" rx="64" ry="5" fill="#1a2744" opacity="0.09" />
+      <ellipse cx="92" cy="82" rx="68" ry="5.5" fill="#1a2744" opacity="0.08" />
 
-      {/* Roof slab + vent / Maxx-fan block */}
+      {/* Matte black lower cladding + arch dips over wheels */}
       <path
-        d="M48 18h92v8H48z"
-        fill="#fafaf8"
-        stroke="#252525"
-        strokeWidth="1.4"
+        d="M 18 52
+           L 36 52
+           Q 46 68 58 52
+           L 88 52
+           Q 100 68 112 52
+           L 128 52
+           Q 138 68 150 52
+           L 162 52
+           L 162 78
+           L 18 78 Z"
+        fill="#2d2d2d"
+        stroke="#161616"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
       />
-      <rect x="94" y="14" width="22" height="10" rx="2" fill="#efefec" stroke="#252525" strokeWidth="1.1" />
 
-      {/* Cargo box (white) */}
+      {/* Front bumper (black plastic) */}
+      <path d="M 14 48 L14 76 L26 76 L26 52 Z" fill="#242424" stroke="#111" strokeWidth="1" />
+
+      {/* High roof (white) */}
+      <path
+        d="M 44 14 H 144 L 152 16 V 20 H 46 Z"
+        fill="#ffffff"
+        stroke="#1f1f1f"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <rect x="98" y="10" width="26" height="11" rx="2" fill="#ecece8" stroke="#252525" strokeWidth="1.1" />
+
+      {/* Solid white cargo — no windows rear of slider (per Native builds) */}
       <rect
-        x="44"
-        y="24"
-        width="94"
-        height="32"
-        rx="2.5"
-        fill="#fafaf8"
-        stroke="#1a1a1a"
-        strokeWidth="2"
+        x="80"
+        y="20"
+        width="72"
+        height="30"
+        fill="#ffffff"
+        stroke="#1f1f1f"
+        strokeWidth="1.8"
       />
 
-      {/* Cab wedge + hood */}
+      {/* Cab + front door (white) — everything forward of slider */}
       <path
-        d="M44 24 L36 28 L28 42 L28 50 L44 50 Z"
-        fill="#f4f4f0"
-        stroke="#1a1a1a"
-        strokeWidth="2"
+        d="M 80 20 L 46 20 L 32 26 L 22 42 L 20 52 L 80 48 Z"
+        fill="#ffffff"
+        stroke="#1f1f1f"
+        strokeWidth="1.8"
         strokeLinejoin="round"
       />
 
       {/* Windshield */}
       <path
-        d="M44 24 L36 28 L30 40 L30 46 L40 46 L44 40 Z"
-        fill="#1c2830"
-        stroke="#141414"
-        strokeWidth="1.3"
+        d="M 80 20 L 46 20 L 34 26 L 28 38 L 28 45 L 74 44 L 80 36 Z"
+        fill="#1a242c"
+        stroke="#0a0a0a"
+        strokeWidth="1.2"
         strokeLinejoin="round"
       />
-      <path d="M34 30 L38 28 L41 42 L32 42 Z" fill="#3a4f5c" opacity="0.35" />
+      <path d="M 42 22 L 52 20 L 62 38 L 36 36 Z" fill="#344854" opacity="0.32" />
 
-      {/* Full-length tinted band — slider + galley windows */}
-      <rect x="48" y="28" width="86" height="13" rx="1" fill="#1c2830" stroke="#101010" strokeWidth="1.2" />
-      <rect x="52" y="30" width="34" height="9" rx="0.5" fill="#2d4250" opacity="0.3" />
-      <rect x="96" y="30" width="34" height="9" rx="0.5" fill="#2d4250" opacity="0.2" />
+      {/* Script name on front door (rental nickname style) */}
+      <text
+        x="38"
+        y="46"
+        fill="#222"
+        fontFamily="Georgia, 'Times New Roman', serif"
+        fontSize="5.2"
+        fontStyle="italic"
+      >
+        Katz Trip
+      </text>
 
       {/* Sliding door seam */}
-      <path d="M78 28v13" stroke="#0a0a0a" strokeWidth="0.85" opacity="0.45" />
+      <path d="M 80 20 V 48" stroke="#a8a89e" strokeWidth="1.4" />
+      <path d="M 81 20 V 48" stroke="#ffffff" strokeWidth="0.45" opacity="0.55" />
 
-      {/* Belt line */}
-      <path d="M46 43h92" stroke="#1a1a1a" strokeWidth="1.3" strokeLinecap="round" />
+      {/* Rear barn doors */}
+      <path d="M 144 20 V 48" stroke="#bdbdb5" strokeWidth="1" strokeDasharray="2.5 3" />
 
-      {/* Rear door split */}
-      <path d="M130 24v30" stroke="#bdbdb5" strokeWidth="1" strokeDasharray="2.5 3.5" />
+      {/* NATIVE badge: mountain + word (rear panel) */}
+      <g transform="translate(108, 26)" aria-hidden="true">
+        <rect x="0" y="0" width="36" height="12" rx="1.5" fill="#fff" stroke="#1a1a1a" strokeWidth="0.9" />
+        <path
+          d="M 4 9 L 8 3 L 11 6 L 14.5 2 L 18 9 Z"
+          fill="none"
+          stroke="#1a1a1a"
+          strokeWidth="0.85"
+          strokeLinejoin="round"
+        />
+        <text
+          x="19"
+          y="8.5"
+          fill="#1a1a1a"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          fontSize="6"
+          fontWeight="700"
+          letterSpacing="0.04em"
+        >
+          NATIVE
+        </text>
+      </g>
 
-      {/* Rocker panel */}
-      <path
-        d="M26 54h118v2q0 5 -4 5H30q-4 0 -4 -5z"
-        fill="#e6e6e1"
-        stroke="#1a1a1a"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
+      {/* Black steel wheels + chrome/silver hubcaps */}
+      <circle cx="46" cy="67" r="11" fill="#121212" stroke="#050505" strokeWidth="1.5" />
+      <circle cx="46" cy="67" r="3.8" fill="#d4d4d0" stroke="#9c9c98" strokeWidth="0.55" />
+      <circle cx="100" cy="67" r="11" fill="#121212" stroke="#050505" strokeWidth="1.5" />
+      <circle cx="100" cy="67" r="3.8" fill="#d4d4d0" stroke="#9c9c98" strokeWidth="0.55" />
+      <circle cx="140" cy="67" r="10.5" fill="#121212" stroke="#050505" strokeWidth="1.5" />
+      <circle cx="140" cy="67" r="3.5" fill="#d4d4d0" stroke="#9c9c98" strokeWidth="0.55" />
 
-      {/* Running board */}
-      <rect x="54" y="58" width="32" height="2.5" rx="1" fill="#404040" opacity="0.85" />
-
-      {/* Wheels */}
-      <circle cx="42" cy="66" r="10" fill="#1e1e1e" stroke="#0a0a0a" strokeWidth="1.5" />
-      <circle cx="42" cy="66" r="4.2" fill="#6a6a6a" />
-      <circle cx="96" cy="66" r="10" fill="#1e1e1e" stroke="#0a0a0a" strokeWidth="1.5" />
-      <circle cx="96" cy="66" r="4.2" fill="#6a6a6a" />
-      <circle cx="134" cy="66" r="9.5" fill="#1e1e1e" stroke="#0a0a0a" strokeWidth="1.5" />
-      <circle cx="134" cy="66" r="3.8" fill="#6a6a6a" />
-
-      {/* Front corner / bumper + light */}
-      <path
-        d="M26 50 L26 54"
-        stroke="#1a1a1a"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <rect x="20" y="44" width="6" height="3.5" rx="1" fill="#f8f6e8" stroke="#1a1a1a" strokeWidth="1" />
+      {/* Headlight */}
+      <rect x="12" y="44" width="6" height="4.5" rx="1.2" fill="#f7f4e4" stroke="#1a1a1a" strokeWidth="1" />
     </svg>
   )
 }
