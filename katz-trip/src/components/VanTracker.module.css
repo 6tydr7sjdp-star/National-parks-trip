@@ -32,7 +32,7 @@
   background: linear-gradient(180deg, #e3edf5 0%, #dce8f2 100%);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
-  padding: 1.75rem 1rem 3.25rem;
+  padding: 2.65rem 1rem 3.25rem;
   overflow: hidden;
 }
 
@@ -108,6 +108,43 @@
   text-align: center;
 }
 
+.planeWrap {
+  position: absolute;
+  z-index: 2;
+  width: 72px;
+  height: 44px;
+  color: #1a2744;
+  filter: drop-shadow(0 4px 10px rgba(26, 39, 68, 0.18));
+  pointer-events: none;
+}
+
+.planeWrapStart {
+  left: 2%;
+  top: 8%;
+  transform: translateX(0);
+}
+
+.planeWrapEnd {
+  right: 2%;
+  left: auto;
+  top: 8%;
+  transform: translateX(0);
+}
+
+.planeBob {
+  animation: planeTaxi 2.8s ease-in-out infinite;
+}
+
+@keyframes planeTaxi {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
 .vanWrap {
   position: absolute;
   top: 50%;
@@ -144,33 +181,16 @@
   letter-spacing: 0.04em;
 }
 
-.vanCredit {
-  font-size: 11px;
-  color: var(--gray-400);
-  text-align: center;
-  line-height: 1.45;
-  margin-top: 10px;
-  max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.vanCreditLink {
-  color: var(--navy);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  font-weight: 500;
-}
-
-.vanCreditLink:hover {
-  color: var(--gold);
-}
-
 @media (max-width: 520px) {
   .milestoneLabel {
     width: 56px;
     margin-left: -28px;
     font-size: 8px;
+  }
+
+  .planeWrap {
+    width: 56px;
+    height: 36px;
   }
 
   .vanWrap {

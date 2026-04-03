@@ -104,6 +104,51 @@ export function getTripProgress(now: Date, days: Day[]): TripProgress {
   }
 }
 
+/** Last calendar day of outbound (Burbank → Provo) prep / flight window */
+const TRACKER_OUTBOUND_THROUGH_DATE = 'May 31'
+const TRACKER_RETURN_FLIGHT_DATE = 'June 14'
+
+export type TripTrackerVisuals = {
+  /** Van position on the 0–1 progress bar (may stay 0 until road trip begins). */
+  vanProgress01: number
+  showDeparturePlane: boolean
+  showReturnPlane: boolean
+}
+
+/**
+ * Planes and van parking for the progress strip: departure jet through outbound day,
+ * van idle until June 1, return jet on flight home day only.
+ */
+export function getTripTrackerVisuals(now: Date, days: Day[]): TripTrackerVisuals {
+  const progress = getTripProgress(now, days)
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const t0 = startOfDayMs(today)
+  const outboundEnd = startOfDayMs(parseTripDayToLocalDate(TRACKER_OUTBOUND_THROUGH_DATE))
+
+  let vanProgress01 = progress.progress01
+
+  if (progress.status === 'before') {
+    vanProgress01 = 0
+  } else if (progress.status === 'during') {
+    if (t0 <= outboundEnd) {
+      vanProgress01 = 0
+    } else {
+      vanProgress01 = progress.progress01
+    }
+  } else {
+    vanProgress01 = 1
+  }
+
+  const showDeparturePlane =
+    progress.status !== 'after' && t0 <= outboundEnd
+
+  const showReturnPlane =
+    progress.status === 'during' &&
+    days[progress.dayIndex]?.date === TRACKER_RETURN_FLIGHT_DATE
+
+  return { vanProgress01, showDeparturePlane, showReturnPlane }
+}
+
 /** Milestone positions (0–1) along the loop — uses same span as `getTripProgress` (n − 1). */
 export function getRouteMilestones(
   dayCount: number,
