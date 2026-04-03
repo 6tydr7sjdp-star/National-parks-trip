@@ -71,6 +71,14 @@ export default function VanTracker({
         <div className={styles.roadSolid} />
         <div className={styles.road} />
 
+        <div
+          className={`${styles.milestone} ${styles.milestoneBurbank}`}
+          style={{ left: '6%' }}
+        >
+          <div className={styles.dot} />
+          <span className={styles.milestoneLabel}>Burbank</span>
+        </div>
+
         {milestones.map((m) => (
           <div
             key={m.label}

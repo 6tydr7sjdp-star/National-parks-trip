@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 type Variant = 'departure' | 'return'
 
 /**
- * Bold side-profile jet, nose-up — fits viewBox cleanly, reads on light backgrounds.
+ * Light, playful 1980s-inspired jet: pastels, chrome highlights, Memphis energy.
  */
 export default function TripTrackerPlaneSvg({
   className,
@@ -16,69 +16,104 @@ export default function TripTrackerPlaneSvg({
 }) {
   const title =
     variant === 'departure'
-      ? 'Commercial jet preparing for takeoff'
-      : 'Commercial jet awaiting takeoff'
+      ? 'Retro pastel jet leaving Burbank'
+      : 'Retro pastel jet heading home'
+
+  const wingAccent = variant === 'return' ? '#ffb74d' : '#7fdbda'
 
   return (
     <svg
       className={className}
       style={style}
-      viewBox="0 0 128 64"
+      viewBox="0 0 140 76"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-hidden
     >
       <title>{title}</title>
-      <g transform="translate(4,36)">
-        <g transform="rotate(-12 56 8)">
-          {/* Fuselage */}
+      <defs>
+        <linearGradient id="fuse80s" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fff8fc" />
+          <stop offset="45%" stopColor="#ffe4f3" />
+          <stop offset="100%" stopColor="#d4f4ff" />
+        </linearGradient>
+        <linearGradient id="stripe80s" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#ff9ec8" />
+          <stop offset="100%" stopColor="#ff7eb3" />
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(6,40)">
+        <g transform="rotate(-10 68 10)">
+          {/* Playful vapor / sparkle */}
+          <circle cx="-2" cy="18" r="3" fill="#fff59d" opacity="0.9" />
+          <circle cx="-8" cy="22" r="2" fill="#b2ebf2" opacity="0.85" />
           <path
-            d="M 8 10 L 88 6 Q 98 6 104 12 L 106 18 Q 106 24 96 26 L 12 28 Q 4 26 4 18 Z"
-            fill="#2a3f5c"
-            stroke="#152538"
+            d="M -12 24 Q -6 20 0 24 Q -4 28 -12 24"
+            fill="#e1bee7"
+            opacity="0.9"
+          />
+
+          {/* Main fuselage — soft jelly bean */}
+          <path
+            d="M 6 18 Q 6 10 18 8 H 82 Q 96 8 102 14 L 106 22 Q 106 32 94 34 H 22 Q 8 32 6 22 Z"
+            fill="url(#fuse80s)"
+            stroke="#ffffff"
+            strokeWidth="2.2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M 12 22 H 88 Q 94 22 96 26 L 96 28 Q 90 26 14 26 Q 12 24 12 22 Z"
+            fill="url(#stripe80s)"
+            opacity="0.92"
+          />
+
+          {/* Wing — tropical teal / sunset */}
+          <path
+            d="M 42 32 L 54 48 H 80 L 64 32 Z"
+            fill={wingAccent}
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path d="M 50 36 L 58 44" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+
+          {/* Tail fin — sunshine yellow */}
+          <path
+            d="M 10 16 L 2 4 L 8 20 Z"
+            fill="#fff176"
+            stroke="#fdd835"
             strokeWidth="1.4"
             strokeLinejoin="round"
           />
-          {/* Highlight */}
+
+          {/* Cockpit bubble */}
           <path
-            d="M 14 12 L 80 9 Q 90 9 96 14 L 97 17 Q 96 14 90 12 L 16 15 Z"
-            fill="#ffffff"
-            opacity="0.22"
+            d="M 88 10 Q 96 10 100 14 L 98 24 Q 92 22 86 20 Q 84 14 88 10 Z"
+            fill="#81d4fa"
+            stroke="#ffffff"
+            strokeWidth="1.4"
+            strokeLinejoin="round"
           />
-          {/* Windows */}
+          <ellipse cx="94" cy="16" rx="4" ry="3" fill="#b3e5fc" opacity="0.7" />
+
+          {/* Round "porthole" windows */}
+          <circle cx="30" cy="16" r="3.2" fill="#4fc3f7" stroke="#ffffff" strokeWidth="1.1" />
+          <circle cx="44" cy="15" r="3.2" fill="#4dd0e1" stroke="#ffffff" strokeWidth="1.1" />
+          <circle cx="58" cy="14" r="3.2" fill="#64b5f6" stroke="#ffffff" strokeWidth="1.1" />
+
+          {/* Engine pod — soft lavender */}
+          <ellipse cx="58" cy="38" rx="7" ry="5" fill="#e1bee7" stroke="#ffffff" strokeWidth="1.3" />
+          <ellipse cx="58" cy="38" rx="3.5" ry="2.5" fill="#ce93d8" opacity="0.6" />
+
+          {/* Nose chrome ring */}
           <path
-            d="M 28 10 H 72"
-            stroke="#8cb4d8"
-            strokeWidth="2.4"
+            d="M 100 18 Q 104 22 102 28"
+            fill="none"
+            stroke="#fce4ec"
+            strokeWidth="2"
             strokeLinecap="round"
-            strokeDasharray="3 5"
-            opacity="0.9"
           />
-          {/* Wing */}
-          <path
-            d="M 44 26 L 56 40 H 76 L 62 26 Z"
-            fill="#1e3248"
-            stroke="#152538"
-            strokeWidth="1.2"
-            strokeLinejoin="round"
-          />
-          {/* Tail */}
-          <path
-            d="M 12 12 L 4 2 L 10 14 Z"
-            fill="#243752"
-            stroke="#152538"
-            strokeWidth="1.1"
-            strokeLinejoin="round"
-          />
-          {/* Cockpit */}
-          <path
-            d="M 92 8 L 102 10 L 100 20 L 90 18 Z"
-            fill="#0f1824"
-            stroke="#152538"
-            strokeWidth="1"
-          />
-          {/* Engine */}
-          <ellipse cx="58" cy="32" rx="6" ry="4" fill="#1a2838" stroke="#0d121a" strokeWidth="1" />
         </g>
       </g>
     </svg>

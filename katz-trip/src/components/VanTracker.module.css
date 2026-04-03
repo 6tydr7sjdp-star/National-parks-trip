@@ -84,13 +84,13 @@
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid var(--navy);
-  margin-left: -5px;
-  box-shadow: 0 1px 4px rgba(26, 39, 68, 0.12);
+  border: 1.5px solid var(--navy);
+  margin-left: -4px;
+  box-shadow: 0 1px 3px rgba(26, 39, 68, 0.12);
 }
 
 .milestoneLabel {
@@ -98,16 +98,40 @@
   top: 100%;
   left: 0;
   transform: translateX(-50%);
-  margin-top: 10px;
-  width: 72px;
-  margin-left: -36px;
-  font-size: 9px;
+  margin-top: 7px;
+  width: 54px;
+  margin-left: -27px;
+  font-size: 8px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.12px;
   color: var(--gray-600);
-  line-height: 1.2;
+  line-height: 1.15;
   text-align: center;
+}
+
+/* Origin airport — pops on the strip like an 80s travel poster */
+.milestoneBurbank {
+  z-index: 2;
+}
+
+.milestoneBurbank .dot {
+  background: linear-gradient(160deg, #fffde7 0%, #fce4ec 100%);
+  border-color: #e91e63;
+  border-width: 1.5px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 2px 6px rgba(233, 30, 99, 0.22);
+}
+
+.milestoneBurbank .milestoneLabel {
+  color: #ad1457;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  text-transform: none;
+  font-size: 9px;
+  width: 56px;
+  margin-left: -28px;
 }
 
 .planeWrap {
@@ -135,7 +159,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 3px 8px rgba(26, 39, 68, 0.35));
+  filter: drop-shadow(0 2px 6px rgba(233, 30, 99, 0.2)) drop-shadow(0 4px 12px rgba(79, 195, 247, 0.25));
 }
 
 /* Inner wrapper so taxi animation does not overwrite outer positioning */
@@ -195,8 +219,15 @@
 
 @media (max-width: 520px) {
   .milestoneLabel {
-    width: 56px;
-    margin-left: -28px;
+    width: 48px;
+    margin-left: -24px;
+    font-size: 7px;
+    letter-spacing: 0.06px;
+  }
+
+  .milestoneBurbank .milestoneLabel {
+    width: 50px;
+    margin-left: -25px;
     font-size: 8px;
   }
 
