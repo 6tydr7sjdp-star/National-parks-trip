@@ -1,7 +1,13 @@
 import ItineraryOverview from '@/components/ItineraryOverview'
 import VanTracker from '@/components/VanTracker'
 import Link from 'next/link'
-import { TRIP_CALENDAR_YEAR, days, sharedPhotoAlbumUrl, tripTagline } from '@/data/trip'
+import {
+  TRIP_CALENDAR_YEAR,
+  TRIP_DATE_RANGE_LABEL,
+  days,
+  sharedPhotoAlbumUrl,
+  tripTagline,
+} from '@/data/trip'
 import PhotoAlbumCta from '@/components/PhotoAlbumCta'
 import styles from './page.module.css'
 
@@ -15,7 +21,9 @@ export default function Home() {
           Katz family · {tripTagline.calendarDays}-day loop · Summer {TRIP_CALENDAR_YEAR}
         </p>
         <h1 className={styles.stripTitle}>Western road trip</h1>
-        <p className={styles.stripDates}>May 30 – June 12 · May the van find good campsites</p>
+        <p className={styles.stripDates}>
+          {TRIP_DATE_RANGE_LABEL} · May the van find good campsites
+        </p>
         <div className={styles.stripLinks}>
           <Link href="/itinerary" className={styles.btnPrimary}>
             Full itinerary

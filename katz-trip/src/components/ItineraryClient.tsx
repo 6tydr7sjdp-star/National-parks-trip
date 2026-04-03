@@ -3,7 +3,7 @@
 import itineraryStyles from '@/app/itinerary/page.module.css'
 import DayCard from '@/components/DayCard'
 import type { Day } from '@/data/trip'
-import { tripTagline } from '@/data/trip'
+import { TRIP_DATE_RANGE_LABEL, tripTagline } from '@/data/trip'
 import { useTripDays } from '@/hooks/useTripDays'
 import Link from 'next/link'
 import styles from './ItineraryClient.module.css'
@@ -16,7 +16,7 @@ export default function ItineraryClient({ serverDays }: { serverDays: Day[] }) {
       <div className={itineraryStyles.pageHeader}>
         <h1 className={itineraryStyles.pageTitle}>Itinerary</h1>
         <p className={itineraryStyles.pageSub}>
-          {tripTagline.calendarDays} days · May 30 – June 12
+          {tripTagline.calendarDays} days · {TRIP_DATE_RANGE_LABEL}
         </p>
       </div>
 

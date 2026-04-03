@@ -25,33 +25,40 @@ export const days: Day[] = [
   {
     id: 1,
     date: 'May 30',
-    icon: '✈️',
-    title: 'LAX → Salt Lake City',
-    location: 'Los Angeles → Salt Lake City',
-    badge: 'Fly',
+    icon: '🧳',
+    title: 'Pre-flight · LA area',
+    location: 'Greater Los Angeles → Burbank',
+    badge: 'Travel',
     badgeColor: 'sky',
-    stay: 'Family House',
+    stay: 'Hotel / family (local)',
     plan: [
-      'Fly to SLC',
-      'Get to family house',
-      'Easy dinner and early night',
+      'Close out work / school loose ends',
+      'Get to Burbank area for tomorrow’s flight',
+      'Pack carry-ons, set alarms — early airport day tomorrow',
     ],
-    goal: 'Start calm, not rushed',
+    goal: 'Show up rested for Allegiant check-in',
   },
   {
     id: 2,
     date: 'May 31',
-    icon: '🏡',
-    title: 'Salt Lake City Reset',
-    location: 'Salt Lake City',
-    badge: 'Home base',
-    badgeColor: 'sage',
+    icon: '✈️',
+    title: 'Burbank → Provo',
+    location: 'BUR → PVU',
+    badge: 'Booked',
+    badgeColor: 'sky',
+    stay: 'Family House',
     plan: [
-      'Relax with family',
+      'Allegiant G41592 · BUR 11:39 AM → PVU 2:23 PM (1h 44m)',
+      'Land Provo, then get to the family house',
       'Grocery run for snacks / supplies',
-      'Prep bags and gear',
+      'Prep bags and gear for the road trip start',
     ],
-    goal: 'Be fully ready for the road trip start',
+    goal: 'Be fully ready for Bryce tomorrow',
+    locked: {
+      name: 'Allegiant Air G41592 · Burbank → Provo',
+      time: 'Depart 11:39 AM · Arrive 2:23 PM · 1h 44m block',
+      confirmation: 'W557MV',
+    },
   },
   /* PHASE 02: RED ROCK TERRITORY */
   {
@@ -224,6 +231,75 @@ export const days: Day[] = [
     ],
     goal: "Don't overdo it — it's a massive park",
   },
+  /* PHASE 04: HOMEWARD */
+  {
+    id: 13,
+    date: 'June 11',
+    icon: '🚗',
+    title: 'Exit Yellowstone · southbound',
+    location: 'Yellowstone → Salt Lake City area',
+    badge: 'Travel',
+    badgeColor: 'flex',
+    drive: 'Long riding day — flex actual route',
+    stay: 'Family House',
+    plan: [
+      'Break camp / check out of Canyon Lodge',
+      'Point the van south toward Utah',
+      'Easy evening — you’ve earned it',
+      '(Flex: add a buffer night closer to the park if the drive feels tight.)',
+    ],
+    goal: 'Safety first — rotate drivers, snack often',
+  },
+  {
+    id: 14,
+    date: 'June 12',
+    icon: '🏡',
+    title: 'Salt Lake City · decompress',
+    location: 'Salt Lake City',
+    badge: 'Home base',
+    badgeColor: 'sage',
+    stay: 'Family House',
+    plan: [
+      'Laundry, repack, gear triage',
+      'Catch up on sleep',
+      'Light planning for Allegiant morning on the 14th',
+    ],
+  },
+  {
+    id: 15,
+    date: 'June 13',
+    icon: '🎒',
+    title: 'Provo · pre-flight',
+    location: 'Provo (PVU)',
+    badge: 'Prep',
+    badgeColor: 'sage',
+    stay: 'Near Provo / PVU',
+    plan: [
+      'Return rental / staging car if needed',
+      'Pack bags for TSA-light Allegiant rules',
+      'Early bedtime — 6:33 AM departure',
+    ],
+    goal: 'Leave nothing in the hotel fridge',
+  },
+  {
+    id: 16,
+    date: 'June 14',
+    icon: '✈️',
+    title: 'Provo → Burbank',
+    location: 'PVU → BUR',
+    badge: 'Booked',
+    badgeColor: 'sky',
+    plan: [
+      'Allegiant G43221 · PVU 6:33 AM → BUR 7:26 AM (1h 53m)',
+      'Collect bags, hugs, scatter toward home',
+    ],
+    goal: 'Hydrate — it’s an early push',
+    locked: {
+      name: 'Allegiant Air G43221 · Provo → Burbank',
+      time: 'Depart 6:33 AM · Arrive 7:26 AM · 1h 53m block',
+      confirmation: 'W557MV',
+    },
+  },
 ]
 
 /** iCloud Shared Album or any HTTPS link — shown on the home page for every visitor after deploy */
@@ -236,20 +312,24 @@ export const stops = [
   { label: 'Moab', days: '6–8' },
   { label: 'Grand Tetons', days: '9' },
   { label: 'Yellowstone', days: '10–12' },
+  { label: 'Utah wrap · flights', days: '13–16' },
 ]
+
+/** Shown in nav, meta, and headers — keep in sync with first/last `days[].date` */
+export const TRIP_DATE_RANGE_LABEL = 'May 30 – June 14'
 
 /** Home page narrative — three-act structure matches the trip playbook */
 export const itineraryOverview = {
   intro:
-    'May 30 through June 12: SLC family time, Utah’s red rock and arches, then a long pull north to the Tetons and Yellowstone. Twelve driving-itinerary days on the road.',
+    'May 30 through June 14: Allegiant Burbank–Provo, Utah family time and red rock country, a long pull north to the Tetons and Yellowstone, then home via Provo–Burbank.',
   phases: [
     {
       label: 'Phase 01',
       title: 'The warm up',
       days: 'Days 1–2',
-      anchor: 'Salt Lake City',
+      anchor: 'LA · Provo · Salt Lake City',
       blurb:
-        'Fly to SLC, land at the family house, reset with groceries and gear prep before the desert.',
+        'Position for Burbank, fly Allegiant to Provo, land at the family house, and prep gear before the desert.',
     },
     {
       label: 'Phase 02',
@@ -267,13 +347,21 @@ export const itineraryOverview = {
       blurb:
         'Big drive to Colter Bay, then Canyon Lodge — guided caldera day plus wildlife and geysers before winding down.',
     },
+    {
+      label: 'Phase 04',
+      title: 'Homeward',
+      days: 'Days 13–16',
+      anchor: 'Utah · Allegiant home',
+      blurb:
+        'Ride south from Yellowstone, decompress in Salt Lake, stage near Provo, then an early Allegiant hop PVU → BUR.',
+    },
   ],
 }
 
 /** Subtitle line for marketing (PDF: 4 parks · 14 days) */
 export const tripTagline = {
   nationalParks: 4,
-  calendarDays: 14,
+  calendarDays: 16,
   epicLine: '1 Epic Adventure',
 }
 

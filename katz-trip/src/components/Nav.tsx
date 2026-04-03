@@ -1,4 +1,5 @@
 'use client'
+import { TRIP_DATE_RANGE_LABEL } from '@/data/trip'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -12,7 +13,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <div className="nav-brand">
-        Katz Trip <span>May 30 – June 12</span>
+        Katz Trip <span>{TRIP_DATE_RANGE_LABEL}</span>
       </div>
       <ul className="nav-links">
         {links.map(l => (

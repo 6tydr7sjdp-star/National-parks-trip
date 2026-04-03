@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import './globals.css'
 import Nav from '@/components/Nav'
+import { TRIP_DATE_RANGE_LABEL } from '@/data/trip'
 
 export const metadata: Metadata = {
   title: 'Katz Family Road Trip',
-  description: 'May 30 – June 12 · SLC → Bryce → Capitol Reef → Moab → Tetons → Yellowstone',
+  description: `${TRIP_DATE_RANGE_LABEL} · Provo/Burbank · SLC → red rock → Tetons → Yellowstone`,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

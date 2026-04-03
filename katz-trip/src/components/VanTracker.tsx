@@ -78,7 +78,7 @@ export default function VanTracker({
         {progress.status === 'after' && 'Garage (for now)'}
       </p>
       <p className={styles.vanCredit}>
-        Illustration: 1970s-style road van (not a real photo). Nose points the way we’re
+        Illustration: Sprinter-style road van (not a real photo). Nose points the way we’re
         traveling on the map.
       </p>
     </section>

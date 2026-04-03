@@ -104,13 +104,13 @@ export function getTripProgress(now: Date, days: Day[]): TripProgress {
   }
 }
 
-/** Milestone positions (0–1) for six regions — uses same span as `getTripProgress` (n − 1). */
+/** Milestone positions (0–1) along the loop — uses same span as `getTripProgress` (n − 1). */
 export function getRouteMilestones(
   dayCount: number,
 ): { label: string; progress: number }[] {
   const n = Math.max(2, dayCount)
   const s = n - 1
-  return [
+  const base: { label: string; progress: number }[] = [
     { label: 'Salt Lake City', progress: (0 + 1) / 2 / s },
     { label: 'Bryce Canyon', progress: 2 / s },
     { label: 'Capitol Reef', progress: (3 + 4) / 2 / s },
@@ -118,4 +118,11 @@ export function getRouteMilestones(
     { label: 'Grand Tetons', progress: 8 / s },
     { label: 'Yellowstone', progress: (9 + 10 + 11) / 3 / s },
   ]
+  if (dayCount > 12) {
+    base.push({
+      label: 'Heading home',
+      progress: (12 + 13 + 14 + 15) / 4 / s,
+    })
+  }
+  return base
 }
