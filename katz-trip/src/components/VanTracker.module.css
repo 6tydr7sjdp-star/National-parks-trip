@@ -32,10 +32,10 @@
   background: linear-gradient(180deg, #e3edf5 0%, #dce8f2 100%);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
-  padding: 2.65rem 1rem 3.25rem;
-  /* Allow planes slightly above the road; van shadow still contained */
+  /* Extra top/left room: Burbank label above the path + small plane */
+  padding: 3.1rem 1rem 3.25rem 1.15rem;
   overflow: visible;
-  min-height: 128px;
+  min-height: 132px;
 }
 
 /* Desert-highway mood similar to Native hero photography */
@@ -110,7 +110,7 @@
   text-align: center;
 }
 
-/* Origin airport — pops on the strip like an 80s travel poster */
+/* Origin airport — left of the road start; label above the dot so Salt Lake can sit below */
 .milestoneBurbank {
   z-index: 2;
 }
@@ -125,28 +125,33 @@
 }
 
 .milestoneBurbank .milestoneLabel {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 6px;
   color: #ad1457;
   font-weight: 700;
-  letter-spacing: 0.15px;
+  letter-spacing: 0.2px;
   text-transform: none;
   font-size: 9px;
-  width: 56px;
-  margin-left: -28px;
+  width: 64px;
+  margin-left: -32px;
+  line-height: 1.2;
 }
 
 .planeWrap {
   position: absolute;
   z-index: 3;
-  width: 96px;
-  height: 56px;
+  width: 54px;
+  height: 30px;
   pointer-events: none;
   top: 50%;
 }
 
 .planeWrapStart {
-  /* Road begins at 6% — tuck Burbank departure jet just left of the timeline */
-  left: 6%;
-  transform: translate(calc(-100% - 10px), calc(-50% - 52px));
+  /* Align with Burbank pin; full outline left of the road (6%) */
+  left: 3.75%;
+  transform: translate(calc(-100% - 2px), calc(-50% - 46px));
 }
 
 .planeWrapEnd {
@@ -232,8 +237,18 @@
   }
 
   .planeWrap {
-    width: 56px;
-    height: 36px;
+    width: 44px;
+    height: 26px;
+  }
+
+  .planeWrapStart {
+    transform: translate(calc(-100% - 1px), calc(-50% - 40px));
+  }
+
+  .milestoneBurbank .milestoneLabel {
+    font-size: 8px;
+    width: 58px;
+    margin-left: -29px;
   }
 
   .vanWrap {

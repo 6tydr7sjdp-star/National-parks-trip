@@ -73,7 +73,7 @@ export default function VanTracker({
 
         <div
           className={`${styles.milestone} ${styles.milestoneBurbank}`}
-          style={{ left: '6%' }}
+          style={{ left: '3.75%' }}
         >
           <div className={styles.dot} />
           <span className={styles.milestoneLabel}>Burbank</span>

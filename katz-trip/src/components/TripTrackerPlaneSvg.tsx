@@ -25,7 +25,8 @@ export default function TripTrackerPlaneSvg({
     <svg
       className={className}
       style={style}
-      viewBox="0 0 140 76"
+      viewBox="0 0 128 68"
+      overflow="visible"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-hidden
@@ -43,27 +44,28 @@ export default function TripTrackerPlaneSvg({
         </linearGradient>
       </defs>
 
-      <g transform="translate(6,40)">
-        <g transform="rotate(-10 68 10)">
-          {/* Playful vapor / sparkle */}
-          <circle cx="-2" cy="18" r="3" fill="#fff59d" opacity="0.9" />
-          <circle cx="-8" cy="22" r="2" fill="#b2ebf2" opacity="0.85" />
+      {/* Shift right so tail + sparkles stay inside when the SVG is flush-left on the strip */}
+      <g transform="translate(14,36)">
+        <g transform="rotate(-10 60 10)">
+          {/* Playful vapor / sparkle — kept in positive x so outline isn’t clipped */}
+          <circle cx="4" cy="18" r="2.5" fill="#fff59d" opacity="0.9" />
+          <circle cx="0" cy="22" r="1.8" fill="#b2ebf2" opacity="0.85" />
           <path
-            d="M -12 24 Q -6 20 0 24 Q -4 28 -12 24"
+            d="M 0 24 Q 4 21 8 24 Q 5 27 0 24"
             fill="#e1bee7"
             opacity="0.9"
           />
 
           {/* Main fuselage — soft jelly bean */}
           <path
-            d="M 6 18 Q 6 10 18 8 H 82 Q 96 8 102 14 L 106 22 Q 106 32 94 34 H 22 Q 8 32 6 22 Z"
+            d="M 6 18 Q 6 10 18 8 H 80 Q 94 8 100 14 L 104 22 Q 104 32 92 34 H 22 Q 8 32 6 22 Z"
             fill="url(#fuse80s)"
             stroke="#ffffff"
-            strokeWidth="2.2"
+            strokeWidth="1.85"
             strokeLinejoin="round"
           />
           <path
-            d="M 12 22 H 88 Q 94 22 96 26 L 96 28 Q 90 26 14 26 Q 12 24 12 22 Z"
+            d="M 12 22 H 86 Q 92 22 94 26 L 94 28 Q 88 26 14 26 Q 12 24 12 22 Z"
             fill="url(#stripe80s)"
             opacity="0.92"
           />
@@ -89,13 +91,13 @@ export default function TripTrackerPlaneSvg({
 
           {/* Cockpit bubble */}
           <path
-            d="M 88 10 Q 96 10 100 14 L 98 24 Q 92 22 86 20 Q 84 14 88 10 Z"
+            d="M 86 10 Q 94 10 98 14 L 96 24 Q 90 22 84 20 Q 82 14 86 10 Z"
             fill="#81d4fa"
             stroke="#ffffff"
             strokeWidth="1.4"
             strokeLinejoin="round"
           />
-          <ellipse cx="94" cy="16" rx="4" ry="3" fill="#b3e5fc" opacity="0.7" />
+          <ellipse cx="92" cy="16" rx="3.5" ry="2.5" fill="#b3e5fc" opacity="0.7" />
 
           {/* Round "porthole" windows */}
           <circle cx="30" cy="16" r="3.2" fill="#4fc3f7" stroke="#ffffff" strokeWidth="1.1" />
@@ -108,7 +110,7 @@ export default function TripTrackerPlaneSvg({
 
           {/* Nose chrome ring */}
           <path
-            d="M 100 18 Q 104 22 102 28"
+            d="M 98 18 Q 102 22 100 28"
             fill="none"
             stroke="#fce4ec"
             strokeWidth="2"
