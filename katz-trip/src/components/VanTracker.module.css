@@ -110,9 +110,9 @@
   text-align: center;
 }
 
-/* Origin airport — left of the road start; label above the dot so Salt Lake can sit below */
+/* Origin airport — above spotlight beams (z4) so the pin stays readable */
 .milestoneBurbank {
-  z-index: 2;
+  z-index: 5;
 }
 
 .milestoneBurbank .dot {
@@ -141,58 +141,106 @@
   line-height: 1.2;
 }
 
-/* Tiny runway glints under the Burbank pin */
+/* Airport taxi lights — same horizontal anchor as Burbank pin; above plane (z 3), below van (z 5) */
 .burbankSpotlights {
   position: absolute;
-  left: 0;
+  left: 3.75%;
   top: 50%;
-  transform: translate(-50%, 12px);
+  transform: translate(-50%, 18px);
   display: flex;
   justify-content: center;
   align-items: flex-end;
   gap: 5px;
-  width: 42px;
-  height: 8px;
+  width: 58px;
+  height: 44px;
   pointer-events: none;
-  z-index: 0;
+  z-index: 4;
 }
 
 .burbankSpot {
+  position: relative;
   flex-shrink: 0;
-  width: 5px;
-  height: 2.5px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse 120% 100% at 50% 35%,
-    rgba(255, 255, 252, 0.98) 0%,
-    rgba(255, 236, 200, 0.5) 42%,
-    transparent 68%
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 18px;
+  height: 42px;
+}
+
+.burbankSpotBeam {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 26px;
+  height: 38px;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 100%, 8% 0%, 92% 0%);
+  background: linear-gradient(
+    to top,
+    rgba(255, 248, 210, 1) 0%,
+    rgba(255, 230, 150, 0.82) 18%,
+    rgba(255, 210, 120, 0.45) 45%,
+    rgba(255, 190, 90, 0.18) 72%,
+    rgba(255, 180, 80, 0) 100%
   );
   box-shadow:
-    0 0 4px 1px rgba(255, 248, 225, 0.65),
-    0 0 10px 2px rgba(255, 220, 160, 0.35);
-  animation: burbankSpotShine 2.4s ease-in-out infinite;
+    0 -4px 14px 3px rgba(255, 220, 140, 0.55),
+    0 -12px 24px 8px rgba(255, 200, 100, 0.22);
+  animation: burbankBeamPulse 2.4s ease-in-out infinite;
 }
 
-.burbankSpot:nth-child(2) {
-  animation-delay: 0.45s;
+.burbankSpotFixture {
+  position: relative;
+  z-index: 2;
+  width: 7px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 100% 85% at 50% 20%,
+    #ffffff 0%,
+    #ffe082 35%,
+    #ffb300 90%
+  );
+  border: 1px solid rgba(255, 220, 160, 0.9);
+  box-shadow:
+    0 0 6px 3px rgba(255, 235, 180, 1),
+    0 0 16px 6px rgba(255, 200, 100, 0.65),
+    0 0 28px 10px rgba(255, 180, 80, 0.35);
+  animation: burbankFixturePulse 2.4s ease-in-out infinite;
 }
 
-.burbankSpot:nth-child(3) {
-  animation-delay: 0.9s;
+.burbankSpot:nth-child(2) .burbankSpotBeam,
+.burbankSpot:nth-child(2) .burbankSpotFixture {
+  animation-delay: 0.5s;
 }
 
-@keyframes burbankSpotShine {
+.burbankSpot:nth-child(3) .burbankSpotBeam,
+.burbankSpot:nth-child(3) .burbankSpotFixture {
+  animation-delay: 1s;
+}
+
+@keyframes burbankBeamPulse {
   0%,
   100% {
-    opacity: 0.35;
-    transform: scale(0.85);
-    filter: brightness(0.75);
+    opacity: 0.72;
+    filter: brightness(0.95);
   }
   50% {
     opacity: 1;
-    transform: scale(1.12);
-    filter: brightness(1.35);
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes burbankFixturePulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: brightness(0.95);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
   }
 }
 
@@ -247,7 +295,7 @@
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: 5;
+  z-index: 6;
   transform: translate(-50%, calc(-50% - 14px));
   width: 68px;
   height: 36px;

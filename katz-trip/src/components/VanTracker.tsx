@@ -76,12 +76,23 @@ export default function VanTracker({
           style={{ left: '3.75%' }}
         >
           <div className={styles.dot} />
-          <div className={styles.burbankSpotlights} aria-hidden>
-            <span className={styles.burbankSpot} />
-            <span className={styles.burbankSpot} />
-            <span className={styles.burbankSpot} />
-          </div>
           <span className={styles.milestoneLabel}>Burbank</span>
+        </div>
+
+        {/* Track-level so beams aren’t trapped under the plane / dot stacking */}
+        <div className={styles.burbankSpotlights} aria-hidden>
+          <span className={styles.burbankSpot}>
+            <span className={styles.burbankSpotBeam} />
+            <span className={styles.burbankSpotFixture} />
+          </span>
+          <span className={styles.burbankSpot}>
+            <span className={styles.burbankSpotBeam} />
+            <span className={styles.burbankSpotFixture} />
+          </span>
+          <span className={styles.burbankSpot}>
+            <span className={styles.burbankSpotBeam} />
+            <span className={styles.burbankSpotFixture} />
+          </span>
         </div>
 
         {milestones.map((m) => (
