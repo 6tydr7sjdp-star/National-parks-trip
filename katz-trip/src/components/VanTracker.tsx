@@ -76,6 +76,11 @@ export default function VanTracker({
           style={{ left: '3.75%' }}
         >
           <div className={styles.dot} />
+          <div className={styles.burbankSpotlights} aria-hidden>
+            <span className={styles.burbankSpot} />
+            <span className={styles.burbankSpot} />
+            <span className={styles.burbankSpot} />
+          </div>
           <span className={styles.milestoneLabel}>Burbank</span>
         </div>
 

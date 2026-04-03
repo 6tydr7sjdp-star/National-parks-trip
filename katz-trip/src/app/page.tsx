@@ -20,7 +20,7 @@ export default function Home() {
         <p className={styles.stripEyebrow}>
           Katz family · {tripTagline.calendarDays}-day loop · Summer {TRIP_CALENDAR_YEAR}
         </p>
-        <h1 className={styles.stripTitle}>Western road trip</h1>
+        <h1 className={styles.stripTitle}>National Parks trip</h1>
         <p className={styles.stripDates}>
           {TRIP_DATE_RANGE_LABEL} · May the van find good campsites
         </p>
