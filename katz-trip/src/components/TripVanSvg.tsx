@@ -1,9 +1,8 @@
 import type { CSSProperties } from 'react'
 
 /**
- * Overland / adventure Sprinter-class van: high-roof silver body, full-length roof rack
- * with forward light bar, side ladder, lifted clearance, off-road bumper and fogs,
- * Mercedes star — side profile facing right.
+ * Short-wheelbase overland Sprinter–style van: high roof, compact cargo bay,
+ * roof rack + light bar, side ladder, bumper + fogs, Mercedes star — facing right.
  */
 export default function TripVanSvg({
   className,
@@ -21,153 +20,140 @@ export default function TripVanSvg({
       xmlns="http://www.w3.org/2000/svg"
       role="img"
     >
-      <title>Overland Sprinter-style van facing east</title>
+      <title>Short Sprinter-style van facing east</title>
 
-      <ellipse cx="98" cy="88" rx="76" ry="5.5" fill="#1a2744" opacity="0.1" />
+      <ellipse cx="86" cy="88" rx="58" ry="5" fill="#1a2744" opacity="0.1" />
 
-      {/* Wheels — larger off-road tires, lifted */}
-      <circle cx="48" cy="74" r="12" fill="#0d0d0d" stroke="#000" strokeWidth="1.2" />
-      <circle cx="48" cy="74" r="7.5" fill="none" stroke="#4a4a4a" strokeWidth="2" />
-      <circle cx="48" cy="74" r="3.5" fill="#2a2a2a" />
-      <circle cx="126" cy="74" r="12" fill="#0d0d0d" stroke="#000" strokeWidth="1.2" />
-      <circle cx="126" cy="74" r="7.5" fill="none" stroke="#4a4a4a" strokeWidth="2" />
-      <circle cx="126" cy="74" r="3.5" fill="#2a2a2a" />
+      {/* Wheels — closer together (short WB) */}
+      <circle cx="50" cy="74" r="10" fill="#0d0d0d" stroke="#000" strokeWidth="1.1" />
+      <circle cx="50" cy="74" r="6.2" fill="none" stroke="#4a4a4a" strokeWidth="1.7" />
+      <circle cx="50" cy="74" r="2.8" fill="#2a2a2a" />
+      <circle cx="106" cy="74" r="10" fill="#0d0d0d" stroke="#000" strokeWidth="1.1" />
+      <circle cx="106" cy="74" r="6.2" fill="none" stroke="#4a4a4a" strokeWidth="1.7" />
+      <circle cx="106" cy="74" r="2.8" fill="#2a2a2a" />
 
-      {/* Rocker / black trim */}
       <path
-        d="M 16 72 L 174 72 L 178 78 L 12 78 Z"
+        d="M 18 72 L 154 72 L 158 78 L 14 78 Z"
         fill="#1a1e22"
         stroke="#0a0c0e"
-        strokeWidth="0.9"
+        strokeWidth="0.85"
       />
 
-      {/* Body — silver */}
+      {/* Main body — shorter length */}
       <path
-        d="M 20 72
+        d="M 22 72
            V 28
-           H 128
-           L 152 30
-           L 170 40
-           L 176 56
-           L 176 72
-           H 20 Z"
+           H 100
+           L 120 30
+           L 142 38
+           L 154 54
+           L 158 64
+           L 158 72
+           H 22 Z"
         fill="#d4d8dc"
         stroke="#2a3238"
-        strokeWidth="1.35"
+        strokeWidth="1.3"
         strokeLinejoin="round"
       />
 
-      {/* Roof rack platform */}
+      {/* Roof rack — proportional to shorter roof */}
       <path
-        d="M 26 24 H 132 V 30 H 26 Z"
+        d="M 26 24 H 104 V 30 H 26 Z"
         fill="#1a1d20"
         stroke="#0f1114"
-        strokeWidth="1"
+        strokeWidth="0.95"
       />
-      <path d="M 28 26 H 128" stroke="#3a4048" strokeWidth="0.5" opacity="0.7" />
-      {/* Rack LED bar — front lip */}
+      <path d="M 28 26 H 100" stroke="#3a4048" strokeWidth="0.5" opacity="0.7" />
       <path
-        d="M 120 24 H 132 V 27 H 120 Z"
+        d="M 94 24 H 104 V 27 H 94 Z"
         fill="#f2f6fc"
         stroke="#a8b4c4"
-        strokeWidth="0.6"
+        strokeWidth="0.55"
       />
 
-      {/* Side ladder (rear of cargo area) */}
+      {/* Ladder */}
       <path
-        d="M 36 32 V 70 M 42 32 V 70 M 36 38 H 42 M 36 48 H 42 M 36 58 H 42"
+        d="M 34 32 V 70 M 40 32 V 70 M 34 40 H 40 M 34 50 H 40 M 34 60 H 40"
         stroke="#14181c"
-        strokeWidth="1.6"
+        strokeWidth="1.4"
         strokeLinecap="round"
       />
 
-      {/* Bunk / small rear window */}
-      <rect x="24" y="42" width="10" height="8" rx="1" fill="#141a22" stroke="#0a0e12" strokeWidth="0.9" />
+      <rect x="24" y="42" width="9" height="7" rx="1" fill="#141a22" stroke="#0a0e12" strokeWidth="0.8" />
 
-      {/* Cargo windows — tinted */}
-      <rect x="56" y="40" width="20" height="14" rx="1.5" fill="#121820" stroke="#080c10" strokeWidth="1" />
-      <rect x="60" y="43" width="12" height="6" rx="0.5" fill="#1c2838" opacity="0.5" />
-      <rect x="82" y="40" width="20" height="14" rx="1.5" fill="#121820" stroke="#080c10" strokeWidth="1" />
-      <rect x="86" y="43" width="12" height="6" rx="0.5" fill="#1c2838" opacity="0.45" />
+      {/* Single wide cargo window */}
+      <rect x="52" y="40" width="34" height="14" rx="1.5" fill="#121820" stroke="#080c10" strokeWidth="1" />
+      <rect x="58" y="43" width="22" height="6" rx="0.5" fill="#1c2838" opacity="0.48" />
 
-      {/* Sliding door gap */}
-      <path d="M 104 30 V 70" stroke="#252b30" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M 90 30 V 70" stroke="#252b30" strokeWidth="1.1" strokeLinecap="round" />
 
-      {/* Cab glass */}
+      {/* Cab */}
       <path
-        d="M 130 34 L 148 36 L 152 52 L 128 52 Z"
+        d="M 104 34 L 124 36 L 128 50 L 102 50 Z"
         fill="#121820"
         stroke="#080c10"
         strokeWidth="1"
         strokeLinejoin="round"
       />
-      <path d="M 134 38 L 144 39 L 146 48 L 132 47 Z" fill="#1c2838" opacity="0.4" />
+      <path d="M 108 38 L 118 39 L 120 46 L 106 45 Z" fill="#1c2838" opacity="0.4" />
 
-      {/* Windshield */}
       <path
-        d="M 150 34 L 166 40 L 168 56 L 154 52 Z"
+        d="M 126 34 L 140 39 L 142 52 L 128 50 Z"
         fill="#0e141a"
         stroke="#05080a"
         strokeWidth="1"
         strokeLinejoin="round"
       />
 
-      {/* Short hood */}
       <path
-        d="M 166 40 L 176 43 L 178 58 L 168 56 Z"
+        d="M 140 40 L 150 42 L 152 56 L 142 54 Z"
         fill="#c8ccd0"
         stroke="#2a3238"
         strokeWidth="1"
         strokeLinejoin="round"
       />
 
-      {/* Grille + Mercedes star */}
       <path
-        d="M 176 46 L 184 47 L 184 64 L 176 62 Z"
+        d="M 150 44 L 158 45 L 160 60 L 150 58 Z"
         fill="#1f2226"
         stroke="#101214"
-        strokeWidth="0.85"
+        strokeWidth="0.8"
       />
-      <circle cx="180" cy="54" r="3.2" fill="none" stroke="#c0c4c8" strokeWidth="0.9" />
+      <circle cx="155" cy="52" r="2.8" fill="none" stroke="#c0c4c8" strokeWidth="0.85" />
       <path
-        d="M 180 51.2 L 180 56.8 M 177.4 52.8 L 182.6 55.2 M 177.4 55.2 L 182.6 52.8"
+        d="M 155 50 L 155 54 M 153 51 L 157 53 M 153 53 L 157 51"
         stroke="#e8eaec"
-        strokeWidth="0.65"
+        strokeWidth="0.55"
         strokeLinecap="round"
       />
 
-      {/* Black off-road bumper */}
       <path
-        d="M 168 60 L 192 62 L 194 76 L 166 74 Z"
+        d="M 144 58 L 164 59 L 166 74 L 142 72 Z"
         fill="#141618"
         stroke="#060708"
-        strokeWidth="1.1"
+        strokeWidth="1"
         strokeLinejoin="round"
       />
-      {/* Bumper center LED */}
-      <rect x="176" y="65" width="14" height="3" rx="0.8" fill="#eef4ff" opacity="0.95" />
-      {/* Amber fogs */}
-      <circle cx="170" cy="70" r="2.2" fill="#c2781a" stroke="#5c3a10" strokeWidth="0.6" />
-      <circle cx="188" cy="70" r="2.2" fill="#c2781a" stroke="#5c3a10" strokeWidth="0.6" />
+      <rect x="150" y="63" width="11" height="2.5" rx="0.6" fill="#eef4ff" opacity="0.95" />
+      <circle cx="146" cy="68" r="1.9" fill="#c2781a" stroke="#5c3a10" strokeWidth="0.5" />
+      <circle cx="160" cy="68" r="1.9" fill="#c2781a" stroke="#5c3a10" strokeWidth="0.5" />
 
-      {/* Rear lamp */}
-      <rect x="13" y="40" width="5" height="11" rx="1" fill="#2a1010" stroke="#180808" strokeWidth="0.6" />
-      <rect x="14" y="41" width="3" height="4" rx="0.3" fill="#b02a24" />
+      <rect x="15" y="40" width="5" height="10" rx="1" fill="#2a1010" stroke="#180808" strokeWidth="0.55" />
+      <rect x="16" y="41" width="3" height="3.5" rx="0.25" fill="#b02a24" />
 
-      {/* Mirror */}
       <path
-        d="M 156 36 L 160 34 L 162 42 L 158 44 Z"
+        d="M 130 36 L 134 35 L 135 40 L 131 41 Z"
         fill="#7a8288"
         stroke="#3e454a"
-        strokeWidth="0.6"
+        strokeWidth="0.55"
       />
 
       <text
-        x="58"
+        x="50"
         y="62"
         fill="#2e3640"
         fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="5.5"
+        fontSize="5"
         fontWeight="600"
         letterSpacing="0.02em"
       >

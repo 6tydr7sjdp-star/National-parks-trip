@@ -33,7 +33,9 @@
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: 2.65rem 1rem 3.25rem;
-  overflow: hidden;
+  /* Allow planes slightly above the road; van shadow still contained */
+  overflow: visible;
+  min-height: 128px;
 }
 
 /* Desert-highway mood similar to Native hero photography */
@@ -110,28 +112,36 @@
 
 .planeWrap {
   position: absolute;
-  z-index: 2;
-  width: 72px;
-  height: 44px;
-  color: #1a2744;
-  filter: drop-shadow(0 4px 10px rgba(26, 39, 68, 0.18));
+  z-index: 3;
+  width: 96px;
+  height: 56px;
   pointer-events: none;
+  top: 50%;
 }
 
 .planeWrapStart {
-  left: 2%;
-  top: 8%;
-  transform: translateX(0);
+  /* Road begins at 6% — tuck Burbank departure jet just left of the timeline */
+  left: 6%;
+  transform: translate(calc(-100% - 10px), calc(-50% - 52px));
 }
 
 .planeWrapEnd {
-  right: 2%;
+  right: 1%;
   left: auto;
-  top: 8%;
-  transform: translateX(0);
+  transform: translateY(calc(-50% - 52px));
 }
 
+.planeSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 3px 8px rgba(26, 39, 68, 0.35));
+}
+
+/* Inner wrapper so taxi animation does not overwrite outer positioning */
 .planeBob {
+  width: 100%;
+  height: 100%;
   animation: planeTaxi 2.8s ease-in-out infinite;
 }
 
@@ -141,18 +151,20 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
   }
 }
+
+
 
 .vanWrap {
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: 3;
-  transform: translate(-50%, calc(-50% - 18px));
-  width: 88px;
-  height: 46px;
+  z-index: 5;
+  transform: translate(-50%, calc(-50% - 14px));
+  width: 68px;
+  height: 36px;
   color: #1f1f1f;
   filter: drop-shadow(0 5px 14px rgba(26, 39, 68, 0.22));
   transition: left 0.6s cubic-bezier(0.33, 1, 0.68, 1);
@@ -165,10 +177,10 @@
 @keyframes vanBob {
   0%,
   100% {
-    transform: translate(-50%, calc(-50% - 18px));
+    transform: translate(-50%, calc(-50% - 14px));
   }
   50% {
-    transform: translate(-50%, calc(-50% - 22px));
+    transform: translate(-50%, calc(-50% - 18px));
   }
 }
 
@@ -194,7 +206,7 @@
   }
 
   .vanWrap {
-    width: 72px;
-    height: 38px;
+    width: 58px;
+    height: 30px;
   }
 }

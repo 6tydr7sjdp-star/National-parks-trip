@@ -42,8 +42,14 @@ export default function VanTracker({
     return () => window.clearInterval(id)
   }, [days])
 
-  const leftPct = 6 + clamp01(visuals.vanProgress01) * 88
   const milestones = getRouteMilestones(days.length)
+  /** First milestone is Salt Lake City — van idles there while the outbound jet is at Burbank */
+  const saltLakeProgress = milestones[0]?.progress ?? 0
+  const saltLakeLeftPct = 6 + saltLakeProgress * 88
+  const vanParkedAtSaltLake = visuals.vanProgress01 === 0
+  const leftPct = vanParkedAtSaltLake
+    ? saltLakeLeftPct
+    : 6 + clamp01(visuals.vanProgress01) * 88
 
   const sectionClass =
     layout === 'top'
@@ -77,20 +83,18 @@ export default function VanTracker({
         ))}
 
         {visuals.showDeparturePlane && (
-          <div
-            className={`${styles.planeWrap} ${styles.planeWrapStart} ${styles.planeBob}`}
-            aria-hidden
-          >
-            <TripTrackerPlaneSvg variant="departure" style={{ width: '100%', height: '100%' }} />
+          <div className={`${styles.planeWrap} ${styles.planeWrapStart}`} aria-hidden>
+            <div className={styles.planeBob}>
+              <TripTrackerPlaneSvg variant="departure" className={styles.planeSvg} />
+            </div>
           </div>
         )}
 
         {visuals.showReturnPlane && (
-          <div
-            className={`${styles.planeWrap} ${styles.planeWrapEnd} ${styles.planeBob}`}
-            aria-hidden
-          >
-            <TripTrackerPlaneSvg variant="return" style={{ width: '100%', height: '100%' }} />
+          <div className={`${styles.planeWrap} ${styles.planeWrapEnd}`} aria-hidden>
+            <div className={styles.planeBob}>
+              <TripTrackerPlaneSvg variant="return" className={styles.planeSvg} />
+            </div>
           </div>
         )}
 
