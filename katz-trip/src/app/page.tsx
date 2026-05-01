@@ -1,4 +1,5 @@
 import ItineraryOverview from '@/components/ItineraryOverview'
+import HomeDayGrid from '@/components/HomeDayGrid'
 import VanTracker from '@/components/VanTracker'
 import Link from 'next/link'
 import {
@@ -34,6 +35,8 @@ export default function Home() {
         </div>
         <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} />
       </section>
+
+      <HomeDayGrid serverDays={days} />
 
       <ItineraryOverview />
     </div>
