@@ -170,6 +170,17 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
   const tripHealth = useMemo(() => {
     const completeDays = Math.max(0, activeDayIndex)
     const estimatedHours = days.reduce((sum, d) => sum + driveHours(d), 0)
+    const firstDayMs = toStartOfDay(parseTripDayToLocalDate(days[0].date)).getTime()
+    const lastDayMs = toStartOfDay(
+      parseTripDayToLocalDate(days[days.length - 1].date),
+    ).getTime()
+    const todayMs = today.getTime()
+    const tripPct =
+      todayMs < firstDayMs
+        ? 0
+        : todayMs > lastDayMs
+          ? 100
+          : Math.round((completeDays / Math.max(days.length, 1)) * 100)
     const longTomorrowDrive = driveHours(tomorrowDay) >= 5
     const risk = longTomorrowDrive
       ? 'Long drive day tomorrow — prep snacks, fuel, and an early start.'
@@ -177,10 +188,10 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
     return {
       completeDays,
       estimatedMiles: Math.round(estimatedHours * 52),
-      tripPct: Math.round(((completeDays + 1) / Math.max(days.length, 1)) * 100),
+      tripPct,
       risk,
     }
-  }, [activeDayIndex, days, tomorrowDay])
+  }, [activeDayIndex, days, today, tomorrowDay])
 
   useEffect(() => {
     const primary =
