@@ -170,9 +170,6 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
   const tripHealth = useMemo(() => {
     const completeDays = Math.max(0, activeDayIndex)
     const estimatedHours = days.reduce((sum, d) => sum + driveHours(d), 0)
-    const doneBookings = reservationDays.filter(
-      (d) => reservationMoment(d).getTime() <= now.getTime(),
-    ).length
     const longTomorrowDrive = driveHours(tomorrowDay) >= 5
     const risk = longTomorrowDrive
       ? 'Long drive day tomorrow — prep snacks, fuel, and an early start.'
@@ -180,12 +177,10 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
     return {
       completeDays,
       estimatedMiles: Math.round(estimatedHours * 52),
-      bookingPct: reservationDays.length
-        ? Math.round((doneBookings / reservationDays.length) * 100)
-        : 100,
+      tripPct: Math.round(((completeDays + 1) / Math.max(days.length, 1)) * 100),
       risk,
     }
-  }, [activeDayIndex, days, now, reservationDays, tomorrowDay])
+  }, [activeDayIndex, days, tomorrowDay])
 
   useEffect(() => {
     const primary =
@@ -291,9 +286,11 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
           <p className={homeStyles.healthRisk}>{tripHealth.risk}</p>
         </div>
         <div className={homeStyles.healthCard}>
-          <p className={homeStyles.healthLabel}>Booking completion</p>
-          <p className={homeStyles.healthBig}>{tripHealth.bookingPct}%</p>
-          <p className={homeStyles.healthMeta}>Locked/booked items completed</p>
+          <p className={homeStyles.healthLabel}>Trip completion</p>
+          <p className={homeStyles.healthBig}>{tripHealth.tripPct}%</p>
+          <p className={homeStyles.healthMeta}>
+            Day {todayDay.id} of {days.length} · Next up: {tomorrowDay.title}
+          </p>
         </div>
       </div>
 
