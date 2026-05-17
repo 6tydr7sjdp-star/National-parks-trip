@@ -1,6 +1,7 @@
 import ItineraryClient from '@/components/ItineraryClient'
-import { days } from '@/data/trip'
+import { getTripForViewer } from '@/lib/tripServer'
 
-export default function Itinerary() {
-  return <ItineraryClient serverDays={days} />
+export default async function Itinerary() {
+  const { isFamily, days } = await getTripForViewer()
+  return <ItineraryClient serverDays={days} isFamily={isFamily} />
 }

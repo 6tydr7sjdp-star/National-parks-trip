@@ -1,4 +1,4 @@
-import type { Day } from '@/data/trip'
+import type { Day } from '@/types/trip'
 
 export const ITINERARY_STORAGE_KEY = 'katz-trip-itinerary-days'
 export const ITINERARY_CHANGED_EVENT = 'katz-trip-itinerary-changed'

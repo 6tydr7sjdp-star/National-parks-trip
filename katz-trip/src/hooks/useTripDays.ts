@@ -1,6 +1,6 @@
 'use client'
 
-import type { Day } from '@/data/trip'
+import type { Day } from '@/types/trip'
 import {
   clearStoredItinerary,
   getStoredItinerary,
@@ -9,11 +9,17 @@ import {
 } from '@/lib/itineraryStorage'
 import { useCallback, useEffect, useState } from 'react'
 
-export function useTripDays(serverDays: Day[]) {
+export function useTripDays(serverDays: Day[], isFamily = true) {
   const [days, setDays] = useState<Day[]>(serverDays)
   const [hasLocalEdits, setHasLocalEdits] = useState(false)
 
   useEffect(() => {
+    if (!isFamily) {
+      setDays(serverDays)
+      setHasLocalEdits(false)
+      return
+    }
+
     const load = () => {
       const stored = getStoredItinerary(serverDays)
       if (stored) {
@@ -27,19 +33,24 @@ export function useTripDays(serverDays: Day[]) {
     load()
     window.addEventListener(ITINERARY_CHANGED_EVENT, load)
     return () => window.removeEventListener(ITINERARY_CHANGED_EVENT, load)
-  }, [serverDays])
+  }, [serverDays, isFamily])
 
-  const saveDays = useCallback((next: Day[]) => {
-    setDays(next)
-    setStoredItinerary(next)
-    setHasLocalEdits(true)
-  }, [])
+  const saveDays = useCallback(
+    (next: Day[]) => {
+      if (!isFamily) return
+      setDays(next)
+      setStoredItinerary(next)
+      setHasLocalEdits(true)
+    },
+    [isFamily],
+  )
 
   const resetToServer = useCallback(() => {
+    if (!isFamily) return
     clearStoredItinerary()
     setDays(serverDays)
     setHasLocalEdits(false)
-  }, [serverDays])
+  }, [serverDays, isFamily])
 
   return { days, saveDays, resetToServer, hasLocalEdits }
 }

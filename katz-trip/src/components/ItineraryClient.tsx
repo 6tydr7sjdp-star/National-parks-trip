@@ -2,14 +2,20 @@
 
 import itineraryStyles from '@/app/itinerary/page.module.css'
 import DayCard from '@/components/DayCard'
-import type { Day } from '@/data/trip'
-import { TRIP_DATE_RANGE_LABEL, tripTagline } from '@/data/trip'
+import { TRIP_DATE_RANGE_LABEL, tripTagline } from '@/data/trip-meta'
+import type { Day } from '@/types/trip'
 import { useTripDays } from '@/hooks/useTripDays'
 import Link from 'next/link'
 import styles from './ItineraryClient.module.css'
 
-export default function ItineraryClient({ serverDays }: { serverDays: Day[] }) {
-  const { days, hasLocalEdits } = useTripDays(serverDays)
+export default function ItineraryClient({
+  serverDays,
+  isFamily,
+}: {
+  serverDays: Day[]
+  isFamily: boolean
+}) {
+  const { days, hasLocalEdits } = useTripDays(serverDays, isFamily)
 
   return (
     <div className={itineraryStyles.wrap}>
@@ -20,21 +26,24 @@ export default function ItineraryClient({ serverDays }: { serverDays: Day[] }) {
         </p>
       </div>
 
-      <div className={styles.toolbar}>
-        <Link href="/itinerary/edit" className={styles.editBtn}>
-          Edit itinerary
-        </Link>
-        {hasLocalEdits && (
-          <span className={styles.hint}>Showing edits saved on this device.</span>
-        )}
-      </div>
-
-      {hasLocalEdits && (
-        <p className={styles.banner}>
-          Changes stay in this browser only. Everyone else still sees the default trip until you update{' '}
-          <code className={styles.code}>src/data/trip.ts</code> and deploy.
-        </p>
-      )}
+      {isFamily ? (
+        <>
+          <div className={styles.toolbar}>
+            <Link href="/itinerary/edit" className={styles.editBtn}>
+              Edit itinerary
+            </Link>
+            {hasLocalEdits ? (
+              <span className={styles.hint}>Showing edits saved on this device.</span>
+            ) : null}
+          </div>
+          {hasLocalEdits ? (
+            <p className={styles.banner}>
+              Changes stay in this browser only. Everyone else still sees the default trip until you
+              update <code className={styles.code}>src/data/trip.ts</code> and deploy.
+            </p>
+          ) : null}
+        </>
+      ) : null}
 
       <div className={itineraryStyles.jumpLinks}>
         {days.map((d: Day) => (

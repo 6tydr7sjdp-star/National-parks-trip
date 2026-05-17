@@ -1,6 +1,6 @@
 'use client'
 
-import type { Day } from '@/data/trip'
+import type { Day } from '@/types/trip'
 import { useTripDays } from '@/hooks/useTripDays'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'

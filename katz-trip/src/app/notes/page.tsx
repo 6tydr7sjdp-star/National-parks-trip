@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { sharedPhotoAlbumUrl } from '@/data/trip'
+import { sharedPhotoAlbumUrl } from '@/data/trip-meta'
 import { getStoredPhotoAlbumUrl, setStoredPhotoAlbumUrl } from '@/lib/photoAlbum'
 import styles from './page.module.css'
 

@@ -1,18 +1,20 @@
-import ItineraryOverview from '@/components/ItineraryOverview'
 import HomeDayGrid from '@/components/HomeDayGrid'
+import ItineraryOverview from '@/components/ItineraryOverview'
+import PhotoAlbumCta from '@/components/PhotoAlbumCta'
 import VanTracker from '@/components/VanTracker'
-import Link from 'next/link'
 import {
+  sharedPhotoAlbumUrl,
   TRIP_CALENDAR_YEAR,
   TRIP_DATE_RANGE_LABEL,
-  days,
-  sharedPhotoAlbumUrl,
   tripTagline,
-} from '@/data/trip'
-import PhotoAlbumCta from '@/components/PhotoAlbumCta'
+} from '@/data/trip-meta'
+import { getTripForViewer } from '@/lib/tripServer'
+import Link from 'next/link'
 import styles from './page.module.css'
 
-export default function Home() {
+export default async function Home() {
+  const { isFamily, days } = await getTripForViewer()
+
   return (
     <div className={styles.wrap}>
       <VanTracker serverDays={days} layout="top" />
@@ -29,14 +31,18 @@ export default function Home() {
           <Link href="/itinerary" className={styles.btnPrimary}>
             Full itinerary
           </Link>
-          <Link href="/itinerary/edit" className={styles.btnGhost}>
-            Edit plan
-          </Link>
+          {isFamily ? (
+            <Link href="/itinerary/edit" className={styles.btnGhost}>
+              Edit plan
+            </Link>
+          ) : null}
         </div>
-        <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} />
+        {isFamily && sharedPhotoAlbumUrl ? (
+          <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} />
+        ) : null}
       </section>
 
-      <HomeDayGrid serverDays={days} />
+      <HomeDayGrid serverDays={days} isFamily={isFamily} />
 
       <ItineraryOverview />
     </div>

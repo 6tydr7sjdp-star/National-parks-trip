@@ -1,7 +1,7 @@
 'use client'
 
 import homeStyles from '@/app/page.module.css'
-import type { Day } from '@/data/trip'
+import type { Day } from '@/types/trip'
 import { useTripDays } from '@/hooks/useTripDays'
 import { parseTripDayToLocalDate } from '@/lib/tripProgress'
 import Link from 'next/link'
@@ -99,8 +99,14 @@ function locationQuery(day: Day): string {
   return day.campsite || day.stay || day.location
 }
 
-export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
-  const { days } = useTripDays(serverDays)
+export default function HomeDayGrid({
+  serverDays,
+  isFamily,
+}: {
+  serverDays: Day[]
+  isFamily: boolean
+}) {
+  const { days } = useTripDays(serverDays, isFamily)
   const [filter, setFilter] = useState<FilterId>('all')
   const [now, setNow] = useState(new Date())
   const [copiedId, setCopiedId] = useState<number | null>(null)
@@ -129,19 +135,24 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
   const tomorrowDay = days[Math.min(days.length - 1, activeDayIndex + 1)]
 
   const reservationDays = useMemo(
-    () => days.filter((d) => Boolean(d.confirmation || d.locked)),
-    [days],
+    () =>
+      isFamily ? days.filter((d) => Boolean(d.confirmation || d.locked)) : [],
+    [days, isFamily],
   )
 
   const nextReservation = useMemo(() => {
+    if (!isFamily) return null
     const future = reservationDays
       .map((d) => ({ day: d, when: reservationMoment(d) }))
       .filter((x) => x.when.getTime() >= now.getTime())
       .sort((a, b) => a.when.getTime() - b.when.getTime())
     return future[0] ?? null
-  }, [reservationDays, now])
+  }, [reservationDays, isFamily, now])
 
   const countdown = useMemo(() => {
+    if (!isFamily) {
+      return `Next up: Day ${tomorrowDay.id} · ${tomorrowDay.title}`
+    }
     if (!nextReservation) return 'No upcoming hard reservations'
     const diff = nextReservation.when.getTime() - now.getTime()
     if (diff <= 0) return 'Happening now'
@@ -152,7 +163,7 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
       return `Next hard reservation in ${daysOut}d ${hours % 24}h`
     }
     return `Next hard reservation in ${hours}h ${mins}m`
-  }, [nextReservation, now])
+  }, [isFamily, nextReservation, now, tomorrowDay.id, tomorrowDay.title])
 
   const filteredDays = useMemo(
     () =>
@@ -326,13 +337,15 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
         )}
       </div>
 
-      <p className={homeStyles.dayGridMeta}>
-        <Link href="/itinerary/edit" className={homeStyles.inlineLink}>
-          Edit itinerary
-        </Link>
-        <span className={homeStyles.dayGridMetaSep}>·</span>
-        <span>saves on this device</span>
-      </p>
+      {isFamily ? (
+        <p className={homeStyles.dayGridMeta}>
+          <Link href="/itinerary/edit" className={homeStyles.inlineLink}>
+            Edit itinerary
+          </Link>
+          <span className={homeStyles.dayGridMetaSep}>·</span>
+          <span>saves on this device</span>
+        </p>
+      ) : null}
 
       <div className={homeStyles.filterRow}>
         {FILTERS.map((f) => (
@@ -370,6 +383,7 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
         ))}
       </div>
 
+      {isFamily ? (
       <div className={homeStyles.reservationsSection}>
         <h3 className={homeStyles.resTitle}>Reservations</h3>
         <div className={homeStyles.resGrid}>
@@ -415,6 +429,7 @@ export default function HomeDayGrid({ serverDays }: { serverDays: Day[] }) {
           })}
         </div>
       </div>
+      ) : null}
     </section>
   )
 }

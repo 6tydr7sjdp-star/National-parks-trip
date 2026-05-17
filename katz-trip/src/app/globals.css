@@ -118,6 +118,39 @@ a { color: inherit; text-decoration: none; }
   background: var(--navy-light);
 }
 
+.nav-family-pill {
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.15);
+  padding: 2px 7px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.nav-auth-btn,
+.nav-auth-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  display: inline-block;
+}
+
+.nav-auth-btn:hover,
+.nav-auth-link:hover {
+  color: #fff;
+  background: var(--navy-light);
+}
+
 /* ── Page shell ── */
 .page {
   padding-top: calc(var(--nav-h) + 2rem);

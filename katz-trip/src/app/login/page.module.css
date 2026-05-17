@@ -1,0 +1,30 @@
+.wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.back {
+  margin-top: 1.25rem;
+  font-size: 13px;
+}
+
+.back a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

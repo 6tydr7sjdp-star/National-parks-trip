@@ -1,5 +1,5 @@
-import type { Day } from '@/data/trip'
-import { TRIP_CALENDAR_YEAR } from '@/data/trip'
+import { TRIP_CALENDAR_YEAR } from '@/data/trip-meta'
+import type { Day } from '@/types/trip'
 
 const MONTH: Record<string, number> = {
   January: 0,

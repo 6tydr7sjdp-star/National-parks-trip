@@ -32,8 +32,35 @@ Open [http://localhost:3000](http://localhost:3000)
 
 That's it. No configuration needed.
 
+## Family vs guest access
+
+The site has two views:
+
+- **Guest (default):** Trip progress, weather, day-by-day overview, and general plans. Lodging names, addresses, confirmation numbers, and reservation actions are hidden.
+- **Family (signed in):** Full itinerary with all booking details (same as before).
+
+### Setup (required on Vercel)
+
+Add these environment variables in your Vercel project settings:
+
+- `FAMILY_PASSCODE` - shared passcode your family uses to sign in
+- `SESSION_SECRET` - long random string (32+ characters) used to sign the session cookie
+
+Copy `.env.example` to `.env.local` for local development:
+
+```bash
+cp .env.example .env.local
+# edit FAMILY_PASSCODE and SESSION_SECRET
+```
+
+Sign in at `/login`. Use **Sign out** in the nav to return to the guest view.
+
+Sensitive itinerary data (`src/data/trip.ts`) is server-only and is not sent to guest browsers.
+
 ## Customizing
 
-All trip data lives in one file: `src/data/trip.ts`
+Trip days and reservations live in `src/data/trip.ts` (family view only).
 
-Edit days, stops, confirmation numbers, campsites, and `sharedPhotoAlbumUrl` there and the whole site updates automatically.
+Public copy (nav dates, overview phases) is in `src/data/trip-meta.ts`.
+
+Edit days, stops, confirmation numbers, campsites, and `sharedPhotoAlbumUrl` in `trip.ts` / `trip-meta.ts` and redeploy.

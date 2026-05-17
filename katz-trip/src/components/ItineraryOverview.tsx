@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { itineraryOverview, stops, tripTagline } from '@/data/trip'
+import { itineraryOverview, stops, tripTagline } from '@/data/trip-meta'
 import styles from './ItineraryOverview.module.css'
 
 export default function ItineraryOverview() {

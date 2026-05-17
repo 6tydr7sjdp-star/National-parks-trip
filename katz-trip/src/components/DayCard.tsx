@@ -1,4 +1,4 @@
-import { Day } from '@/data/trip'
+import type { Day } from '@/types/trip'
 import styles from './DayCard.module.css'
 
 export default function DayCard({ day }: { day: Day }) {
@@ -49,7 +49,15 @@ export default function DayCard({ day }: { day: Day }) {
             <span className={styles.lockIcon}>🔒</span>
             <div>
               <p className={styles.lockedName}>{day.locked.name}</p>
-              <p className={styles.lockedMeta}>{day.locked.time} · Confirmation: <strong>{day.locked.confirmation}</strong></p>
+              <p className={styles.lockedMeta}>
+                {day.locked.time}
+                {day.locked.confirmation ? (
+                  <>
+                    {' '}
+                    · Confirmation: <strong>{day.locked.confirmation}</strong>
+                  </>
+                ) : null}
+              </p>
             </div>
           </div>
         )}
