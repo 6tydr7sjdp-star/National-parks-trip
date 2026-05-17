@@ -1,5 +1,5 @@
-import GuestBanner from '@/components/GuestBanner'
 import Nav from '@/components/Nav'
+import SecretDogLogin from '@/components/SecretDogLogin'
 import { TRIP_DATE_RANGE_LABEL } from '@/data/trip-meta'
 import { isFamilySession } from '@/lib/auth'
 import type { Metadata } from 'next'
@@ -8,7 +8,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Katz Family Road Trip',
-  description: `${TRIP_DATE_RANGE_LABEL} · Provo/Burbank · SLC → red rock → Tetons → Yellowstone`,
+  description: `${TRIP_DATE_RANGE_LABEL} - Utah national parks road trip`,
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,15 +18,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body>
         <Nav isFamily={isFamily} />
-        <main className="page">
-          {!isFamily ? <GuestBanner /> : null}
-          {children}
-        </main>
+        <main className="page">{children}</main>
         <footer className="site-footer">
-          <Link href="/packing">Packing list</Link>
-          <span aria-hidden> · </span>
           <Link href="/notes">Notes &amp; album</Link>
         </footer>
+        {!isFamily ? <SecretDogLogin /> : null}
       </body>
     </html>
   )

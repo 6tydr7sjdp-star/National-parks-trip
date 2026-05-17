@@ -5,13 +5,14 @@ import { TRIP_DATE_RANGE_LABEL } from '@/data/trip-meta'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const links = [
-  { href: '/', label: 'Trip' },
-  { href: '/itinerary', label: 'Itinerary' },
-]
+const baseLinks = [{ href: '/', label: 'Trip' }]
 
 export default function Nav({ isFamily }: { isFamily: boolean }) {
   const pathname = usePathname()
+  const links = isFamily
+    ? [...baseLinks, { href: '/itinerary', label: 'Itinerary' }]
+    : baseLinks
+
   return (
     <nav className="nav">
       <div className="nav-brand">
