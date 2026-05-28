@@ -57,8 +57,18 @@ export default function Notes() {
         />
         {sharedPhotoAlbumUrl.trim() ? (
           <p className={styles.albumTripNote}>
-            There is also a trip-wide link in the site data — visitors see that everywhere. This field is
-            for your own bookmark or testing before updating the trip file.
+            <a
+              href={sharedPhotoAlbumUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.albumOpenLink}
+            >
+              Open shared photo album
+            </a>
+            <span className={styles.albumTripNoteSep}>
+              {' '}
+              — also on the home page. The field above saves a link on this device only.
+            </span>
           </p>
         ) : (
           <p className={styles.albumTripNote}>

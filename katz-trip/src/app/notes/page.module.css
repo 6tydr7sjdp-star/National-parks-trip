@@ -62,6 +62,21 @@
   margin-top: 10px;
 }
 
+.albumOpenLink {
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.albumOpenLink:hover {
+  color: var(--navy-muted);
+}
+
+.albumTripNoteSep {
+  color: var(--gray-400);
+}
+
 .code {
   font-family: ui-monospace, monospace;
   font-size: 11px;

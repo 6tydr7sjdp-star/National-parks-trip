@@ -38,9 +38,7 @@ export default async function Home() {
             </Link>
           ) : null}
         </div>
-        {isFamily && sharedPhotoAlbumUrl ? (
-          <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} />
-        ) : null}
+        {sharedPhotoAlbumUrl ? <PhotoAlbumCta tripUrl={sharedPhotoAlbumUrl} /> : null}
       </section>
 
       <HomeDayGrid serverDays={days} isFamily={isFamily} />
