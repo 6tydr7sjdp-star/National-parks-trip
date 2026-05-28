@@ -10,7 +10,7 @@ export const stops = [
 ]
 
 /** iCloud Shared Album or any HTTPS link - family view only after deploy */
-export const sharedPhotoAlbumUrl = 'https://www.icloud.com/sharedalbum/#B2PGtnlORG5bXGf'
+export const sharedPhotoAlbumUrl = 'https://www.icloud.com/sharedalbum/#B2PGtnIORG5bXGf'
 
 /** Shown in nav, meta, and headers - keep in sync with first/last itinerary day */
 export const TRIP_DATE_RANGE_LABEL = 'May 30 - June 14'
