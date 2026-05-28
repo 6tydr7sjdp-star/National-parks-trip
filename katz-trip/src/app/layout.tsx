@@ -20,7 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Nav isFamily={isFamily} />
         <main className="page">{children}</main>
         <footer className="site-footer">
-          <Link href="/notes">Notes &amp; album</Link>
+          {isFamily ? <Link href="/notes">Notes &amp; album</Link> : null}
         </footer>
         {!isFamily ? <SecretDogLogin /> : null}
       </body>
