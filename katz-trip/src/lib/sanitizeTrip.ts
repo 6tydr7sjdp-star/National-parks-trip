@@ -22,7 +22,7 @@ function guestStayLabel(day: Day): string {
   if (/bryce/.test(loc)) return 'Lodging near Bryce Canyon'
   if (/capitol|fruita/.test(loc)) return 'Capitol Reef area'
   if (/moab|arches/.test(loc)) return 'Lodging in Moab'
-  if (/teton/.test(loc)) return 'Grand Teton area'
+  if (/teton|signal mountain/.test(loc)) return 'Grand Teton area'
   if (/yellowstone|canyon lodge/.test(loc)) return 'Lodging in Yellowstone'
   if (/salt lake|slc|provo|burbank/.test(loc)) return 'Family / travel hub'
   return 'Overnight stay'
@@ -30,8 +30,11 @@ function guestStayLabel(day: Day): string {
 
 function guestCampLabel(day: Day): string {
   const loc = day.location.toLowerCase()
-  if (/capitol|fruita/.test(loc)) return 'Camping in Capitol Reef'
-  if (/teton|gros ventre/.test(loc)) return 'Camping in Grand Teton'
+  const camp = (day.campsite ?? '').toLowerCase()
+  if (/capitol|fruita/.test(loc) || /fruita/.test(camp)) return 'Camping in Capitol Reef'
+  if (/teton|gros ventre|signal mountain/.test(loc) || /signal mountain|gros ventre/.test(camp)) {
+    return 'Camping in Grand Teton'
+  }
   return 'Camping night'
 }
 

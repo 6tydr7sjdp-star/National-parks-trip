@@ -50,7 +50,7 @@ export const itineraryOverview = {
       days: 'Days 13-16',
       anchor: 'Salt Lake City / Provo / Burbank',
       blurb:
-        'Buffer day southbound, van drop-off in Salt Lake, family reset day, then early PVU to BUR flight home.',
+        'Signal Mountain camp night, checkout and van drop-off in Salt Lake, family reset day, then early PVU to BUR flight home.',
     },
   ],
 }

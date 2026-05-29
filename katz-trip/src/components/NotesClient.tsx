@@ -112,8 +112,9 @@ export default function NotesClient() {
         <h2 className={styles.sectionTitle}>Key info</h2>
         <div className={styles.infoGrid}>
           {[
-            { label: 'Fruita Campground', val: 'Site 34 - June 2-3' },
-            { label: 'Colter Bay Campground', val: 'Site 48 - June 7' },
+            { label: 'Fruita Campground', val: 'Site 34 - June 2-4' },
+            { label: 'Gros Ventre Campground', val: 'Site 51 - June 6-7' },
+            { label: 'Signal Mountain Campground', val: 'Site 34 - June 11-12' },
             { label: 'Canyon Lodge', val: 'June 8-10' },
             { label: 'Guided Tour', val: 'Cruising the Caldera - #20331373 - 7:45 AM' },
           ].map((info) => (
