@@ -2,6 +2,7 @@
 
 import itineraryStyles from '@/app/itinerary/page.module.css'
 import DayCard from '@/components/DayCard'
+import DriveGuide from '@/components/DriveGuide'
 import { TRIP_DATE_RANGE_LABEL, tripTagline } from '@/data/trip-meta'
 import type { Day } from '@/types/trip'
 import { useTripDays } from '@/hooks/useTripDays'
@@ -65,6 +66,8 @@ export default function ItineraryClient({
           </div>
         ))}
       </div>
+
+      {isFamily ? <DriveGuide /> : null}
     </div>
   )
 }

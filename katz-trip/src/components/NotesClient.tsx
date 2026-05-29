@@ -117,7 +117,8 @@ export default function NotesClient() {
             { label: 'Hyatt Place Moab', val: 'June 4-6 - 890 N Main St' },
             { label: 'Gros Ventre Campground', val: 'Site 51, Loop A - June 6-7' },
             { label: 'Canyon Lodge (Yellowstone)', val: 'June 7-10' },
-            { label: 'Signal Mountain Campground', val: 'Site 34 - June 11-12' },
+            { label: 'Jackson, WY', val: 'June 10 night - hotel or campsite' },
+            { label: 'Signal Mountain Campground', val: 'Site 34, Loop 1 - June 11-12' },
             { label: 'Guided Tour', val: 'Cruising the Caldera - #20331373 - Jun 8 7:45am MDT' },
           ].map((info) => (
             <div key={info.label} className={styles.infoCard}>

@@ -22,7 +22,7 @@ function guestStayLabel(day: Day): string {
   if (/bryce/.test(loc)) return 'Lodging near Bryce Canyon'
   if (/capitol|fruita/.test(loc)) return 'Capitol Reef area'
   if (/moab|arches/.test(loc)) return 'Lodging in Moab'
-  if (/teton|signal mountain/.test(loc)) return 'Grand Teton area'
+  if (/teton|signal mountain|jackson/.test(loc)) return 'Grand Teton area'
   if (/yellowstone|canyon lodge/.test(loc)) return 'Lodging in Yellowstone'
   if (/salt lake|slc|provo|burbank/.test(loc)) return 'Family / travel hub'
   return 'Overnight stay'

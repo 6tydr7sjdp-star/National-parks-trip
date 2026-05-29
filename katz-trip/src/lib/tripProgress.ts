@@ -156,18 +156,19 @@ export function getRouteMilestones(
   const n = Math.max(2, dayCount)
   const s = n - 1
   /* Shorter labels keep the strip legible when many pins share one path */
+  /* 0-indexed: Day 1=0(SLC), 1(Bryce), 2-3(Capitol), 4-5(Moab), 6-7(Tetons), 8-10(Yellowstone/Jackson), 11-14(Signal+home) */
   const base: { label: string; progress: number }[] = [
-    { label: 'Salt Lake', progress: (0 + 1) / 2 / s },
-    { label: 'Bryce', progress: 2 / s },
-    { label: 'Capitol', progress: (3 + 4) / 2 / s },
-    { label: 'Moab', progress: (5 + 6 + 7) / 3 / s },
-    { label: 'Tetons', progress: 8 / s },
-    { label: 'Yellowstone', progress: (9 + 10 + 11) / 3 / s },
+    { label: 'Salt Lake', progress: 0 / s },
+    { label: 'Bryce', progress: 1 / s },
+    { label: 'Capitol', progress: (2 + 3) / 2 / s },
+    { label: 'Moab', progress: (4 + 5) / 2 / s },
+    { label: 'Tetons', progress: (6 + 7) / 2 / s },
+    { label: 'Yellowstone', progress: (8 + 9 + 10) / 3 / s },
   ]
-  if (dayCount > 12) {
+  if (dayCount > 11) {
     base.push({
       label: 'Home',
-      progress: (12 + 13 + 14 + 15) / 4 / s,
+      progress: (11 + 12 + 13 + 14) / 4 / s,
     })
   }
   return base
