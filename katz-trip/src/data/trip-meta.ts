@@ -5,7 +5,7 @@ export const stops = [
   { label: 'Bryce Canyon', days: '3' },
   { label: 'Capitol Reef', days: '4-5' },
   { label: 'Moab', days: '6-7' },
-  { label: 'Grand Tetons', days: '8-9' },
+  { label: 'Grand Tetons', days: '8-9, 13' },
   { label: 'Yellowstone', days: '10-12' },
 ]
 
@@ -48,9 +48,9 @@ export const itineraryOverview = {
       label: 'Phase 04',
       title: 'Wind down + home',
       days: 'Days 13-16',
-      anchor: 'Salt Lake City / Provo / Burbank',
+      anchor: 'Signal Mountain / Salt Lake City / Provo / Burbank',
       blurb:
-        'Signal Mountain camp night, checkout and van drop-off in Salt Lake, family reset day, then early PVU to BUR flight home.',
+        'One last camp night at Signal Mountain in the Tetons, then checkout and van drop-off in Salt Lake, family reset day, and early PVU to BUR flight home.',
     },
   ],
 }
