@@ -1,0 +1,29 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--navy, #1a2744);
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--navy-muted, #2d3d6b);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+@media print {
+  .btn {
+    display: none;
+  }
+}

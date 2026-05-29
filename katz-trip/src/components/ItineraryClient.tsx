@@ -8,6 +8,7 @@ import type { Day } from '@/types/trip'
 import { useTripDays } from '@/hooks/useTripDays'
 import Link from 'next/link'
 import styles from './ItineraryClient.module.css'
+import printStyles from './PrintLinkButton.module.css'
 
 export default function ItineraryClient({
   serverDays,
@@ -32,6 +33,9 @@ export default function ItineraryClient({
           <div className={styles.toolbar}>
             <Link href="/itinerary/edit" className={styles.editBtn}>
               Edit itinerary
+            </Link>
+            <Link href="/print" className={printStyles.btn}>
+              Print / Save as PDF
             </Link>
             {hasLocalEdits ? (
               <span className={styles.hint}>Showing edits saved on this device.</span>
